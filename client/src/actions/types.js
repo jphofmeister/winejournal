@@ -1,0 +1,9 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const ADD_WINE = 'ADD_WINE';
+export const EDIT_WINE = 'EDIT_WINE';
+export const GET_WINES = 'GET_WINES';
+export const GET_WINE = 'GET_WINE';
+export const DELETE_WINE = 'DELETE_WINE';
+export const WINE_LOADING = 'WINE_LOADING';

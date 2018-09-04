@@ -1,0 +1,44 @@
+header {
+  background-color: #f9f9f9;
+  flex: 1 0 60px;
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 60px;
+  @include page-padding;
+}
+
+nav {
+  display: flex;
+  flex: 1 1 auto;
+
+  div:first-child {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  div:nth-child(2) {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center; 
+  
+      li {
+        margin: 0 40px;
+  
+        &:nth-child(1) {
+          margin-left: 0;
+        }
+  
+      }
+    }
+  }
+
+}
+
+
+  
+

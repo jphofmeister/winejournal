@@ -1,0 +1,6 @@
+@mixin page-padding($p-top: 0, $p-right: 3%, $p-bottom: 0, $p-left: 3%) {
+  padding-top: $p-top;
+  padding-right: $p-right;
+  padding-bottom: $p-bottom;
+  padding-left: $p-left;
+}

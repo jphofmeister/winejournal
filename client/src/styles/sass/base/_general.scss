@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+  margin: 0;
+  font-family: $fonts;
+  color: #222;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+#root {
+
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+main {
+
+
+}
+
+section {
+  flex: 1 0 auto;
+  @include page-padding;
+}
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+}

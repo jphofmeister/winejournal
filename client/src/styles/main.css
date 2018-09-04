@@ -1,0 +1,208 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /*font-size: 100%;
+  font: inherit;*/
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html, body {
+  height: 100%; }
+
+html {
+  font-size: 16px; }
+
+body {
+  background-color: #fff;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  color: #222;
+  font-size: 1rem; }
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1em; }
+
+a {
+  color: #367CDF;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+#root .app {
+  display: flex;
+  flex-direction: column; }
+
+section {
+  flex: 1 0 auto;
+  padding-top: 0;
+  padding-right: 3%;
+  padding-bottom: 0;
+  padding-left: 3%; }
+
+.breadcrumbs {
+  margin-bottom: 1rem; }
+
+/*a {
+  button {
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}*/
+button {
+  display: block; }
+  button:hover {
+    cursor: pointer; }
+
+.button {
+  display: inline-block;
+  padding: .8rem 2rem;
+  background-color: #ddd;
+  margin: 1rem;
+  text-decoration: none; }
+  .button:hover {
+    background-color: #ccc; }
+
+.open-wine-form {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  padding: .8rem 2rem; }
+
+form {
+  margin: 1rem 0;
+  background-color: #f9f9f9;
+  padding: 1rem 3%; }
+  form .form-container {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column; }
+    form .form-container .form-row {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row; }
+      form .form-container .form-row label {
+        flex: 1 1;
+        margin-top: .8rem; }
+      form .form-container .form-row input[type="text"],
+      form .form-container .form-row input[type="date"],
+      form .form-container .form-row input[type="number"],
+      form .form-container .form-row textarea {
+        flex: 2 1; }
+      form .form-container .form-row .radio-buttons {
+        flex: 2 1;
+        margin-top: .6rem; }
+        form .form-container .form-row .radio-buttons label {
+          margin-top: 0; }
+  form a {
+    display: block;
+    margin-bottom: 1rem; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%; }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+textarea {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: .6rem 0 .6rem .6rem; }
+
+input[type="radio"] {
+  margin: .2rem .6rem .2rem 0;
+  padding-left: 0; }
+
+.radio-buttons {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+
+header {
+  background-color: #f9f9f9;
+  flex: 1 0 60px;
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 60px;
+  padding-top: 0;
+  padding-right: 3%;
+  padding-bottom: 0;
+  padding-left: 3%; }
+
+nav {
+  display: flex;
+  flex: 1 1 auto; }
+  nav div:first-child {
+    display: flex;
+    flex: 1 1 auto; }
+  nav div:nth-child(2) {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end; }
+    nav div:nth-child(2) ul {
+      list-style: none;
+      display: flex;
+      align-items: center; }
+      nav div:nth-child(2) ul li {
+        margin: 0 40px; }
+        nav div:nth-child(2) ul li:nth-child(1) {
+          margin-left: 0; }
+
+footer {
+  background-color: #f9f9f9;
+  flex: 1 0 60px;
+  display: flex;
+  margin-top: 2rem;
+  line-height: 60px;
+  padding-top: 0;
+  padding-right: 3%;
+  padding-bottom: 0;
+  padding-left: 3%; }
+
+.wine-card {
+  display: inline-block;
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 3px; }
+  .wine-card .wine-row {
+    display: block; }
