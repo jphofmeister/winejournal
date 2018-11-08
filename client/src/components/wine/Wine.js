@@ -25,7 +25,6 @@ class Wine extends Component {
 
   toggleOptions(newValue) {
     this.setState({
-      //showEditForm: !this.state.showEditForm
       showEditForm: newValue
     });
   }
@@ -40,7 +39,11 @@ class Wine extends Component {
     let wineContent;
 
     if (this.state.showEditForm === false) {
-      wineContent = <WineInfo wine={wine} onClick={this.toggleOptions} showEditForm={this.state.showEditForm} onDeleteClick={this.onDeleteClick} />
+      wineContent = <WineInfo
+        wine={wine}
+        onClick={this.toggleOptions}
+        showEditForm={this.state.showEditForm}
+        onDeleteClick={this.onDeleteClick} />
     } else {
       wineContent = <EditWine wine={wine} onClick={this.toggleOptions} showEditForm={this.state.showEditForm} />
     }

@@ -23,7 +23,10 @@ class WineForm extends Component {
       alcoholContent: '',
       price: '',
       vintage: '',
-      wineImage: '',
+      //selectedImage: null,
+      wineImage: null,
+      wineImageName: null,
+      imageUrl: null,
       areOptionsHidden: true,
       errors: {}
     }
@@ -40,31 +43,67 @@ class WineForm extends Component {
     }
   }
 
+  onChange(e) {
+    // const newValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
+    let newValue;
+
+    if (e.target.type === 'file') {
+      // newValue = URL.createObjectURL(e.target.files[0]);
+      this.setState({ imageUrl: URL.createObjectURL(e.target.files[0]) })
+      newValue = e.target.files[0];
+      //newValue = data;
+    } else if (e.target.type === 'checkbox') {
+      newValue = e.target.checked;
+    } else {
+      newValue = e.target.value;
+    }
+
+    this.setState({ [e.target.name]: newValue });
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
-    const newWine = {
-      wineName: this.state.wineName,
-      winery: this.state.winery,
-      wineType: this.state.wineType,
-      notes: this.state.notes,
-      varietal: this.state.varietal,
-      tasteDate: this.state.tasteDate,
-      tasteLocation: this.state.tasteLocation,
-      rating: this.state.rating,
-      alcoholContent: this.state.alcoholContent,
-      price: this.state.price,
-      vintage: this.state.vintage,
-      wineImage: this.state.wineImage
-    };
+    // const wineImage = this.state.wineImage;
 
-    this.props.addWine(newWine, this.props.history);
+    const wineData = new FormData();
+    wineData.append('wineImage', this.state.wineImage);
+    wineData.append('wineName', this.state.wineName);
+    wineData.append('winery', this.state.winery);
+    wineData.append('wineType', this.state.wineType);
+    wineData.append('notes', this.state.notes);
+    wineData.append('varietal', this.state.varietal);
+    wineData.append('tasteDate', this.state.tasteDate);
+    wineData.append('tasteLocation', this.state.tasteLocation);
+    wineData.append('rating', this.state.rating);
+    wineData.append('alcoholContent', this.state.alcoholContent);
+    wineData.append('price', this.state.price);
+    wineData.append('vintage', this.state.vintage);
+
+    console.log(wineData);
+
+    // const newWine = {
+    //   wineName: this.state.wineName,
+    //   winery: this.state.winery,
+    //   wineType: this.state.wineType,
+    //   notes: this.state.notes,
+    //   varietal: this.state.varietal,
+    //   tasteDate: this.state.tasteDate,
+    //   tasteLocation: this.state.tasteLocation,
+    //   rating: this.state.rating,
+    //   alcoholContent: this.state.alcoholContent,
+    //   price: this.state.price,
+    //   vintage: this.state.vintage,
+    //   wineImage: this.state.wineImage
+    // };
+
+    this.props.addWine(wineData, this.props.history);
   }
 
-  onChange(e) {
-    const newValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    this.setState({ [e.target.name]: newValue });
-  }
+  // onFileUpload(e) {
+  //   this.setState({ wineImage: e.target.files[0] })
+  // }
 
   onReset = (event) => {
     this.setState({
@@ -87,8 +126,7 @@ class WineForm extends Component {
       rating: this.state.rating,
       alcoholContent: this.state.alcoholContent,
       price: this.state.price,
-      vintage: this.state.vintage,
-      wineImage: this.state.wineImage
+      vintage: this.state.vintage
     }
 
     const radioOptions = [
@@ -101,8 +139,15 @@ class WineForm extends Component {
     ];
 
     return (
-      <form onSubmit={this.onSubmit} onReset={this.onReset}>
+      <form onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
         <div className="form-container">
+          <input
+            type="file"
+            name="wineImage"
+            onChange={this.onChange}
+          />
+          <img src={this.state.imageUrl} />
+
           <TextInput
             name="wineName"
             labelText="Wine Name"

@@ -55,6 +55,8 @@ const WineSchema = new Schema({
         type: Number,
     },
     wineImage: {
+        // data: Buffer, 
+        // contentType: String
         type: String
     }
 });

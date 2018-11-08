@@ -29,7 +29,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         wine: action.payload
-        //wines: [action.payload, ...state.wines]
+        //wines: [action.payload, ...state.wines] 
       };
     case GET_WINES:
       return {
