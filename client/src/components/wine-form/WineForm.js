@@ -25,7 +25,6 @@ class WineForm extends Component {
       vintage: '',
       //selectedImage: null,
       wineImage: null,
-      wineImageName: null,
       imageUrl: null,
       areOptionsHidden: true,
       errors: {}

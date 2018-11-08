@@ -3,9 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-
-const Grid = require('gridfs-stream');
-
 // require for uploading
 const multer = require('multer');
 const cloudinary = require('cloudinary');
@@ -15,7 +12,7 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 
 const storage = cloudinaryStorage({
     cloudinary: cloudinary,
-    folder: "demo",
+    folder: "wine-journal-images",
     allowedFormats: ["jpg", "png"]
 });
 
@@ -90,7 +87,8 @@ router.post(
         if (req.body.alcoholContent) newWine.alcoholContent = req.body.alcoholContent;
         if (req.body.price) newWine.price = req.body.price;
         if (req.body.vintage) newWine.vintage = req.body.vintage;
-        if (req.file.url) newWine.wineImage = req.file.url;
+        if (req.file.url) newWine.wineImageUrl = req.file.url;
+        if (req.file.public_id) newWine.wineImageId = req.file.public_id;
 
         // Create
         new Wine(newWine).save().then(wine => res.json(wine));

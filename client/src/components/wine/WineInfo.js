@@ -32,7 +32,7 @@ class WineInfo extends Component {
           <Link to={`/wine/${wine._id}`}> {wine.wineName}</Link>
         </div>
         <h1>{wine.wineName}</h1>
-        <p className="wine-row">Wine Image: <img src={wine.wineImage} /></p>
+        <p className="wine-row">Wine Image: <img src={wine.wineImageUrl} /></p>
         <p className="wine-row">Winery: {wine.winery} </p>
         <p className="wine-row">Wine Type: {wine.wineType} </p>
         <p className="wine-row">Notes: {wine.notes} </p>

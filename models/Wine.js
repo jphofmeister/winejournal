@@ -54,9 +54,11 @@ const WineSchema = new Schema({
     vintage: {
         type: Number,
     },
-    wineImage: {
-        // data: Buffer, 
-        // contentType: String
+    wineImageUrl: {
+        type: String
+
+    },
+    wineImageId: {
         type: String
     }
 });
