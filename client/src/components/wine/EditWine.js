@@ -129,7 +129,7 @@ class EditWine extends Component {
     ];
 
     return (
-      <form onSubmit={this.onSubmit} onReset={this.onReset}>
+      <form onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
         <div className="form-container">
           <TextInput
             name="wineName"

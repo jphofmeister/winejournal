@@ -61,11 +61,11 @@ router.get('/:id', (req, res) => {
 router.post(
     '/',
     passport.authenticate('jwt', { session: false }),
-    upload.single('wineImage'),
+    upload.any('wineImage'),
     (req, res) => {
         const { errors, isValid } = validateWineInput(req.body);
 
-        //check validation
+        //check validation 
         if (!isValid) {
             return res.status(400).json(errors);
         }
@@ -87,8 +87,10 @@ router.post(
         if (req.body.alcoholContent) newWine.alcoholContent = req.body.alcoholContent;
         if (req.body.price) newWine.price = req.body.price;
         if (req.body.vintage) newWine.vintage = req.body.vintage;
-        if (req.file.url) newWine.wineImageUrl = req.file.url;
-        if (req.file.public_id) newWine.wineImageId = req.file.public_id;
+        if (req.file) {
+            if (req.file.url) newWine.wineImageUrl = req.file.url;
+            if (req.file.public_id) newWine.wineImageId = req.file.public_id;
+        }
 
         // Create
         new Wine(newWine).save().then(wine => res.json(wine));
@@ -136,7 +138,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), upload.sing
 
 // @route   DELETE api/wine/:id
 // @desc    delete wine
-// @access  Private
+// @access  Private 
 router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Wine.findOne({ wine: req.body.wineName })
         .then(wine => {
@@ -146,6 +148,9 @@ router.delete('/:id', passport.authenticate('jwt', { session: false }), (req, re
                     // if (wine.user.toString() !== req.user.id) {
                     //     return res.status(401).json({ notauthorized: 'User not authorized' });
                     // }
+                    if (wine.wineImageId) {
+                        cloudinary.v2.uploader.destroy(wine.wineImageId);
+                    }
 
                     //Delete
                     wine.remove().then(() => res.json({ success: true }));

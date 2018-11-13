@@ -47,7 +47,7 @@ class WineInfo extends Component {
           <button onClick={this.handleToggleOptions}>Edit Wine</button>
         </div>
         <div>
-          <button onClick={this.handleDeleteClick.bind(this, wine._id)} type="button">
+          <button onClick={this.handleDeleteClick.bind(this, wine._id)}>
             <i className="fas fa-times" />
           </button>
         </div>

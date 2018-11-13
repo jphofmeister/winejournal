@@ -23,9 +23,8 @@ class WineForm extends Component {
       alcoholContent: '',
       price: '',
       vintage: '',
-      //selectedImage: null,
       wineImage: null,
-      imageUrl: null,
+      tempImageUrl: null,
       areOptionsHidden: true,
       errors: {}
     }
@@ -34,6 +33,7 @@ class WineForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
     this.toggleOptions = this.toggleOptions.bind(this);
+    this.onDeleteImage = this.onDeleteImage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,15 +43,11 @@ class WineForm extends Component {
   }
 
   onChange(e) {
-    // const newValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-
     let newValue;
 
     if (e.target.type === 'file') {
-      // newValue = URL.createObjectURL(e.target.files[0]);
-      this.setState({ imageUrl: URL.createObjectURL(e.target.files[0]) })
+      this.setState({ tempImageUrl: URL.createObjectURL(e.target.files[0]) })
       newValue = e.target.files[0];
-      //newValue = data;
     } else if (e.target.type === 'checkbox') {
       newValue = e.target.checked;
     } else {
@@ -63,8 +59,6 @@ class WineForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
-    // const wineImage = this.state.wineImage;
 
     const wineData = new FormData();
     wineData.append('wineImage', this.state.wineImage);
@@ -80,31 +74,18 @@ class WineForm extends Component {
     wineData.append('price', this.state.price);
     wineData.append('vintage', this.state.vintage);
 
-    console.log(wineData);
-
-    // const newWine = {
-    //   wineName: this.state.wineName,
-    //   winery: this.state.winery,
-    //   wineType: this.state.wineType,
-    //   notes: this.state.notes,
-    //   varietal: this.state.varietal,
-    //   tasteDate: this.state.tasteDate,
-    //   tasteLocation: this.state.tasteLocation,
-    //   rating: this.state.rating,
-    //   alcoholContent: this.state.alcoholContent,
-    //   price: this.state.price,
-    //   vintage: this.state.vintage,
-    //   wineImage: this.state.wineImage
-    // };
-
     this.props.addWine(wineData, this.props.history);
   }
 
-  // onFileUpload(e) {
-  //   this.setState({ wineImage: e.target.files[0] })
-  // }
+  onDeleteImage() {
+    this.setState({
+      tempImageUrl: null,
+      wineImage: null
+    });
+    //document.getElementById("wineImage").value = "";
+  }
 
-  onReset = (event) => {
+  onReset() {
     this.setState({
       isFormHidden: true,
       areOptionsHidden: true
@@ -137,15 +118,31 @@ class WineForm extends Component {
       { name: 'wineType', value: 'Fortified', checked: this.state.wineType === 'Fortified', onChange: this.onChange }
     ];
 
+    const uploadInput = (
+      <div className="form-row" >
+        <input
+          type="file"
+          name="wineImage"
+          id="wineImage"
+          onChange={this.onChange}
+        />
+      </div >
+    );
+
+    const displayImage = (
+      <div className="form-row" >
+        <img src={this.state.tempImageUrl} />
+        <a onClick={this.onDeleteImage}>
+          <i className="fas fa-times" />
+        </a>
+      </div>
+    );
+
     return (
       <form onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
         <div className="form-container">
-          <input
-            type="file"
-            name="wineImage"
-            onChange={this.onChange}
-          />
-          <img src={this.state.imageUrl} />
+
+          {this.state.tempImageUrl ? displayImage : uploadInput}
 
           <TextInput
             name="wineName"
