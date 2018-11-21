@@ -31,6 +31,7 @@ class MoreWineOptions extends Component {
           value={this.props.tasteDate}
           onChange={this.props.onChange}
           error={errors.tasteDate}
+          divClass="wine-form-row"
         />
 
         <TextInput
@@ -40,6 +41,7 @@ class MoreWineOptions extends Component {
           value={this.props.tasteLocation}
           onChange={this.props.onChange}
           error={errors.tasteLocation}
+          divClass="wine-form-row"
         />
 
         <TextInput
@@ -50,6 +52,7 @@ class MoreWineOptions extends Component {
           value={this.props.rating}
           onChange={this.props.onChange}
           error={errors.rating}
+          divClass="wine-form-row"
         />
 
         <TextInput
@@ -60,6 +63,7 @@ class MoreWineOptions extends Component {
           value={this.props.alcoholContent}
           onChange={this.props.onChange}
           error={errors.alcoholContent}
+          divClass="wine-form-row"
         />
 
         <TextInput
@@ -71,6 +75,7 @@ class MoreWineOptions extends Component {
           step="any"
           onChange={this.props.onChange}
           error={errors.price}
+          divClass="wine-form-row"
         />
 
         <TextInput
@@ -81,6 +86,7 @@ class MoreWineOptions extends Component {
           value={this.props.vintage}
           onChange={this.props.onChange}
           error={errors.vintage}
+          divClass="wine-form-row"
         />
 
       </div>

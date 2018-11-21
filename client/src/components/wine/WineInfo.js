@@ -23,6 +23,12 @@ class WineInfo extends Component {
 
   render() {
     const { wine } = this.props;
+    let date;
+    if (wine.tasteDate) {
+      date = (<Moment format="MMM DD, YYYY">{wine.tasteDate}</Moment>);
+    } else {
+      date = "-";
+    }
 
     return (
       <div>
@@ -37,7 +43,7 @@ class WineInfo extends Component {
         <p className="wine-row">Wine Type: {wine.wineType} </p>
         <p className="wine-row">Notes: {wine.notes} </p>
         <p className="wine-row">Varietal: {wine.varietal} </p>
-        <p className="wine-row">Tasted On: <Moment format="MMM DD, YYYY">{wine.tasteDate}</Moment></p>
+        <p className="wine-row">Tasted On: {date}</p>
         <p className="wine-row">Location Tasted At: {wine.tasteLocation}</p>
         <p className="wine-row">Rating: {wine.rating} Stars</p>
         <p className="wine-row">Alcohol Content: {wine.alcoholContent}%</p>

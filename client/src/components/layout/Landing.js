@@ -12,20 +12,20 @@ class Landing extends Component {
 
   render() {
     return (
-      <section>
-        <h1 className="display-3 mb-4">Wine Journal</h1>
-        <p className="lead">
-          {' '}
-          Keep you wines here!
-        </p>
-        <hr />
-        <Link to="/register" className="button">
-          Sign Up
-        </Link>
-        <Link to="/login" className="button">
-          Login
-        </Link>
-      </section>
+      <section className="landing">
+        <div className="container">
+          <h1>Wine Journal</h1>
+          <p>Keep your wines here! Organize your wine cellar, write down notes, rate your favorites, and more!</p>
+          <div className="landing-buttons">
+            <Link to="/login" className="button">
+              LOGIN
+            </Link>
+            <Link to="/register" className="button btn-primary">
+              SIGN UP
+            </Link>
+          </div>
+        </div >
+      </section >
     )
   }
 }

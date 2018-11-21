@@ -26,7 +26,7 @@ class Dashboard extends Component {
     return (
       <section>
         <h1>Dashboard</h1>
-        <Link to="/add-wine" className="button add-wine-btn">Add Wine</Link>
+        <Link to="/add-wine" className="button add-wine-btn btn-primary">Add Wine</Link>
         {wineContent}
       </section>
     )

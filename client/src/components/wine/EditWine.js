@@ -129,8 +129,8 @@ class EditWine extends Component {
     ];
 
     return (
-      <form onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
-        <div className="form-container">
+      <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
+        <div className="wine-form-container">
           <TextInput
             name="wineName"
             labelText="Wine Name"
@@ -138,6 +138,7 @@ class EditWine extends Component {
             value={this.state.wineName}
             onChange={this.onChange}
             error={errors.wineName}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -147,12 +148,14 @@ class EditWine extends Component {
             value={this.state.winery}
             onChange={this.onChange}
             error={errors.winery}
+            divClass="wine-form-row"
           />
 
           <RadioButtons
             mainLabel="Wine Type"
             options={radioOptions}
             error={errors.wineType}
+            divClass="wine-form-row"
           />
 
           <TextArea
@@ -161,6 +164,7 @@ class EditWine extends Component {
             placeholder="Ex: Refreshing, easy drinking"
             onChange={this.onChange}
             value={this.state.notes}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -170,6 +174,7 @@ class EditWine extends Component {
             value={this.state.varietal}
             onChange={this.onChange}
             error={errors.varietal}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -180,6 +185,7 @@ class EditWine extends Component {
             value={this.state.tasteDate}
             onChange={this.onChange}
             error={errors.tasteDate}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -189,6 +195,7 @@ class EditWine extends Component {
             value={this.state.tasteLocation}
             onChange={this.onChange}
             error={errors.tasteLocation}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -199,6 +206,7 @@ class EditWine extends Component {
             value={this.state.rating}
             onChange={this.onChange}
             error={errors.rating}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -209,6 +217,7 @@ class EditWine extends Component {
             value={this.state.alcoholContent}
             onChange={this.onChange}
             error={errors.alcoholContent}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -220,6 +229,7 @@ class EditWine extends Component {
             step="any"
             onChange={this.onChange}
             error={errors.price}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -230,6 +240,7 @@ class EditWine extends Component {
             value={this.state.vintage}
             onChange={this.onChange}
             error={errors.vintage}
+            divClass="wine-form-row"
           />
 
         </div>

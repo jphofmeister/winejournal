@@ -13,10 +13,11 @@ const TextInput = ({
   type,
   onChange,
   disabled,
-  step
+  step,
+  divClass
 }) => {
   return (
-    <div className="form-row">
+    <div className={divClass}>
       {labelText && <label htmlFor={name}>{labelText}</label>}
       <input
         type={type}

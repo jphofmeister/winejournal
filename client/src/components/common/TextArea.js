@@ -9,10 +9,11 @@ const TextArea = ({
   value,
   error,
   info,
-  onChange
+  onChange,
+  divClass
 }) => {
   return (
-    <div className="form-row">
+    <div className={divClass}>
       <label htmlFor={name}>{labelText}</label>
       <textarea
         placeholder={placeholder}

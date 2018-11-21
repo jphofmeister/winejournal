@@ -1,1 +1,33 @@
+.landing {
+  background-image: url('../images/andrew-seaman-598038-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: -80px;
+  display: flex;
+  justify-content: flex-start; // center vertically on the page
+
+  .container {
+    //padding-top: 80px;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column; // give each item its own row
+    justify-content: center; // center horizontally on the page
+    color: #fff;
+
+    .landing-buttons {
+      display: flex;
+      flex-direction: row; // keep buttons on the same line
+      
+      a.button {
+        flex: none; // allow buttons to be sized based on their text and padding
+      }
+
+      a.button:first-child {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
 

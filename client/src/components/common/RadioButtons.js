@@ -11,7 +11,8 @@ const RadioButtons = ({
   onChange,
   checked,
   disabled,
-  options
+  options,
+  divClass
 }) => {
 
   const radioOptions = options.map(option => (
@@ -29,7 +30,7 @@ const RadioButtons = ({
   ));
 
   return (
-    <div className="form-row">
+    <div className={divClass}>
 
       {mainLabel && <label>{mainLabel}</label>}
 

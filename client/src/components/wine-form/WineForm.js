@@ -139,8 +139,8 @@ class WineForm extends Component {
     );
 
     return (
-      <form onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
-        <div className="form-container">
+      <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
+        <div className="wine-form-container">
 
           {this.state.tempImageUrl ? displayImage : uploadInput}
 
@@ -151,6 +151,7 @@ class WineForm extends Component {
             value={this.state.wineName}
             onChange={this.onChange}
             error={errors.wineName}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -160,12 +161,14 @@ class WineForm extends Component {
             value={this.state.winery}
             onChange={this.onChange}
             error={errors.winery}
+            divClass="wine-form-row"
           />
 
           <RadioButtons
             mainLabel="Wine Type"
             options={radioOptions}
             error={errors.wineType}
+            divClass="wine-form-row"
           />
 
           <TextArea
@@ -174,6 +177,7 @@ class WineForm extends Component {
             placeholder="Ex: Refreshing, easy drinking"
             onChange={this.onChange}
             value={this.state.notes}
+            divClass="wine-form-row"
           />
 
           <TextInput
@@ -183,6 +187,7 @@ class WineForm extends Component {
             value={this.state.varietal}
             onChange={this.onChange}
             error={errors.varietal}
+            divClass="wine-form-row"
           />
 
           <a href="#"

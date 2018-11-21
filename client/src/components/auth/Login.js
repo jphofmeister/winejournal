@@ -52,13 +52,10 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <section>
-        <h1>Log In</h1>
-        <p>
-          Sign in to your Wine Journal account
-        </p>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-container">
+      <section className="bg-image">
+        <div className="auth-container">
+          <h1>Log In</h1>
+          <form className="auth-form" onSubmit={this.onSubmit}>
             <TextInput
               placeholder="Email Address"
               name="email"
@@ -66,6 +63,7 @@ class Login extends Component {
               value={this.state.email}
               onChange={this.onChange}
               error={errors.email}
+              divClass="auth-form-row"
             />
 
             <TextInput
@@ -75,13 +73,14 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.onChange}
               error={errors.password}
+              divClass="auth-form-row"
             />
-
-          </div>
-          <input type="submit" />
-        </form>
-
-      </section>
+            <div className="auth-form-row">
+              <button type="submit" className="btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </section >
     );
   }
 }
