@@ -50,7 +50,6 @@ router.get('/', (req, res) => {
 // @access  Public
 router.get('/:id', (req, res) => {
     Wine.findById(req.params.id)
-        .populate('wine')
         .then(wine => res.json(wine))
         .catch(err => res.status(404).json({ nowinefound: 'No wine found with that id' }));
 });
@@ -77,7 +76,7 @@ router.post(
         if (req.body.winery) newWine.winery = req.body.winery;
         if (req.body.wineType) newWine.wineType = req.body.wineType;
         if (req.body.notes) newWine.notes = req.body.notes;
-        // Varietal - Spilt into array
+        // Varietal - Spilt into array 
         if (typeof req.body.varietal !== 'undefined') {
             newWine.varietal = req.body.varietal.split(',');
         }
