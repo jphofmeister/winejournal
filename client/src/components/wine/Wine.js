@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import WineInfo from './WineInfo';
 import EditWine from './EditWine';
@@ -38,14 +37,18 @@ class Wine extends Component {
 
     let wineContent;
 
-    if (this.state.showEditForm === false) {
-      wineContent = <WineInfo
-        wine={wine}
-        onClick={this.toggleOptions}
-        showEditForm={this.state.showEditForm}
-        onDeleteClick={this.onDeleteClick} />
+    if (wine === null || loading) {
+      wineContent = <Spinner />
     } else {
-      wineContent = <EditWine wine={wine} onClick={this.toggleOptions} showEditForm={this.state.showEditForm} />
+      if (this.state.showEditForm === false) {
+        wineContent = <WineInfo
+          wine={wine}
+          onClick={this.toggleOptions}
+          showEditForm={this.state.showEditForm}
+          onDeleteClick={this.onDeleteClick} />
+      } else {
+        wineContent = <EditWine wine={wine} onClick={this.toggleOptions} showEditForm={this.state.showEditForm} />
+      }
     }
 
     return (

@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 import {
-  ADD_WINE,
+  //ADD_WINE,
   EDIT_WINE,
   GET_WINE,
   GET_WINES,
-  DELETE_WINE,
+  //DELETE_WINE,
   WINE_LOADING,
   GET_ERRORS,
   CLEAR_ERRORS
@@ -15,7 +15,7 @@ import {
 export const addWine = (wineData, history) => dispatch => {
   dispatch(clearErrors());
   axios
-    .post('api/wine', wineData)
+    .post('/api/wine', wineData)
     .then(res =>
       history.push('/dashboard')
       // dispatch({

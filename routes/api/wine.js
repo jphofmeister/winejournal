@@ -60,7 +60,7 @@ router.get('/:id', (req, res) => {
 router.post(
     '/',
     passport.authenticate('jwt', { session: false }),
-    upload.any('wineImage'),
+    upload.single('wineImage'),
     (req, res) => {
         const { errors, isValid } = validateWineInput(req.body);
 
@@ -89,7 +89,7 @@ router.post(
         if (req.file) {
             if (req.file.url) newWine.wineImageUrl = req.file.url;
             if (req.file.public_id) newWine.wineImageId = req.file.public_id;
-        }
+        } 
 
         // Create
         new Wine(newWine).save().then(wine => res.json(wine));

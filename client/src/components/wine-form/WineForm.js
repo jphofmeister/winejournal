@@ -12,7 +12,7 @@ class WineForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wineName: '',
+      wineName: '', 
       winery: '',
       wineType: '',
       notes: '',
@@ -92,7 +92,8 @@ class WineForm extends Component {
     });
   }
 
-  toggleOptions() {
+  toggleOptions(e) {
+    e.preventDefault();
     this.setState({
       areOptionsHidden: !this.state.areOptionsHidden
     });
@@ -131,7 +132,7 @@ class WineForm extends Component {
 
     const displayImage = (
       <div className="form-row" >
-        <img src={this.state.tempImageUrl} />
+        <img src={this.state.tempImageUrl} alt="" />
         <a onClick={this.onDeleteImage}>
           <i className="fas fa-times" />
         </a>
@@ -190,11 +191,17 @@ class WineForm extends Component {
             divClass="wine-form-row"
           />
 
-          <a href="#"
+          {/* <a href="#"
             className="expand-link"
             onClick={this.toggleOptions}>
             More Options
-          </a>
+          </a> */}
+
+          <button
+            className="expand-link"
+            onClick={this.toggleOptions}>
+            More Options
+          </button>
 
           {!this.state.areOptionsHidden &&
             <MoreWineOptions moreWineOptions={moreWineOptions} onChange={this.onChange} />

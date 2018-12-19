@@ -15,8 +15,8 @@ const RadioButtons = ({
   divClass
 }) => {
 
-  const radioOptions = options.map(option => (
-    <label>
+  const radioOptions = options.map((option, i) => (
+    <label key={i}>
       <input
         type="radio"
         name={option.name}

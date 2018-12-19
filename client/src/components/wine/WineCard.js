@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
+import placeholder_image from './placeholder_image.jpg';
 
 class WineCard extends Component {
 
   render() {
     const { wine } = this.props;
 
-    // let date;
-    // if (wine.tasteDate) {
-    //   date = (<Moment format="MMM DD, YYYY">{wine.tasteDate}</Moment>);
-    // } else {
-    //   date = "-";
-    // }
-
-    const cardImage = {
-      backgroundImage: `url(${wine.wineImageUrl})`
-    }
+    let cardImage;
+    if (wine.wineImageUrl) {
+      cardImage = { backgroundImage: `url(${wine.wineImageUrl})`}
+     } else {
+      cardImage = { backgroundImage: `url(${placeholder_image})`}
+     }
+    
 
 
     return (
@@ -28,9 +24,6 @@ class WineCard extends Component {
           <h3 className="wine-row">{wine.wineName} </h3>
           <span className="wine-row">Winery: {wine.winery} </span>
           <span className="wine-row">Wine Type: {wine.wineType} </span>
-          {/* <span className="wine-row">Notes: {wine.notes} </span>
-          <span className="wine-row">Varietal: {wine.varietal} </span>
-          <span className="wine-row">Tasted On: {date}</span> */}
         </div>
       </Link>
     )
@@ -40,10 +33,5 @@ class WineCard extends Component {
 WineCard.propTypes = {
   wine: PropTypes.object.isRequired
 }
-
-// const mapStateToProps = state => ({
-//   //auth: state.auth
-//   //wine: state.wine
-// });
 
 export default WineCard;

@@ -12,7 +12,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { user } = this.props.auth;
+    //const { user } = this.props.auth;
     const { wines, loading } = this.props.wine;
 
     let wineContent;

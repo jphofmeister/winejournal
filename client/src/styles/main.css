@@ -161,6 +161,9 @@ input[type="radio"] {
   flex-direction: column;
   align-items: flex-start; }
 
+.expand-link {
+  margin-bottom: 1rem; }
+
 header {
   background-color: #f9f9f9;
   flex: 1 0 60px;

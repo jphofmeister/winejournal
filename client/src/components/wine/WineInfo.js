@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import Moment from 'react-moment';
-import { deleteWine } from '../../actions/wineActions';
 
 class WineInfo extends Component {
   constructor(props) {
@@ -38,7 +34,7 @@ class WineInfo extends Component {
           <Link to={`/wine/${wine._id}`}> {wine.wineName}</Link>
         </div>
         <h1>{wine.wineName}</h1>
-        <p className="wine-row">Wine Image: <img src={wine.wineImageUrl} /></p>
+        <p className="wine-row">Wine Image: <img src={wine.wineImageUrl} alt="" /></p>
         <p className="wine-row">Winery: {wine.winery} </p>
         <p className="wine-row">Wine Type: {wine.wineType} </p>
         <p className="wine-row">Notes: {wine.notes} </p>
@@ -65,10 +61,6 @@ class WineInfo extends Component {
 
 WineInfo.defaultProps = {
   showEditForm: false
-}
-
-WineInfo.propTypes = {
-  deleteWine: PropTypes.func.isRequired
 }
 
 export default WineInfo;
