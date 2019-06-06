@@ -48,6 +48,9 @@ body {
   color: #222;
   font-size: 1rem; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif; }
+
 h1 {
   font-size: 2em;
   font-weight: 700;
@@ -92,7 +95,6 @@ section {
     transition: all .1s ease-in-out; }
 
 .open-wine-form {
-  font-family: "Helvetica Neue", "Lato", sans-serif;
   font-size: 1.5rem;
   padding: 1rem 2rem; }
 
@@ -164,67 +166,29 @@ input[type="radio"] {
 .expand-link {
   margin-bottom: 1rem; }
 
-header {
-  background-color: #f9f9f9;
-  flex: 1 0 60px;
-  display: flex;
-  line-height: 60px;
-  padding-top: 0;
-  padding-right: 3%;
-  padding-bottom: 0;
-  padding-left: 3%; }
-
-nav {
-  display: flex;
-  flex: 1 1 auto; }
-  nav div:first-child {
-    display: flex;
-    flex: 1 1 auto; }
-  nav div:nth-child(2) {
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: flex-end; }
-    nav div:nth-child(2) ul {
-      list-style: none;
-      display: flex;
-      align-items: center; }
-      nav div:nth-child(2) ul li {
-        margin: 0 40px; }
-        nav div:nth-child(2) ul li:nth-child(1) {
-          margin-left: 0; }
-
-footer {
-  background-color: #f9f9f9;
-  flex: 1 0 60px;
-  display: flex;
-  line-height: 60px;
-  padding-top: 0;
-  padding-right: 3%;
-  padding-bottom: 0;
-  padding-left: 3%; }
-
-.landing {
-  background-image: url("../images/login_bg-5.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  margin-top: -80px;
-  display: flex;
-  justify-content: flex-start; }
-  .landing .container {
-    flex: 0 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #333; }
-    .landing .container .landing-buttons {
-      display: flex;
-      flex-direction: row; }
-      .landing .container .landing-buttons a.button {
-        flex: none; }
-      .landing .container .landing-buttons a.button:first-child {
-        margin-right: 1rem; }
+.wine-card {
+  display: inline-block;
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  padding-bottom: .5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: #333; }
+  .wine-card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all .1s ease-in-out; }
+  .wine-card .card-image {
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px; }
+  .wine-card h3.wine-row {
+    padding-top: .8rem; }
+  .wine-card .wine-row {
+    display: block;
+    padding: .1rem 1rem; }
 
 .auth-form {
   margin: 1rem 0;
@@ -262,26 +226,54 @@ footer {
     .bg-image .auth-container h1 {
       margin-bottom: 0; }
 
-.wine-card {
-  display: inline-block;
-  width: 24%;
-  margin-right: 1%;
-  margin-bottom: 1%;
-  padding-bottom: .5rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  color: #333; }
-  .wine-card:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all .1s ease-in-out; }
-  .wine-card .card-image {
-    background-color: #ddd;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 200px; }
-  .wine-card h3.wine-row {
-    padding-top: .8rem; }
-  .wine-card .wine-row {
-    display: block;
-    padding: .1rem 1rem; }
+header {
+  background-color: #f9f9f9;
+  flex: 1 0 60px;
+  display: flex;
+  line-height: 60px;
+  padding-top: 0;
+  padding-right: 3%;
+  padding-bottom: 0;
+  padding-left: 3%; }
+
+nav {
+  display: flex;
+  flex: 1 1 auto; }
+  nav div:first-child {
+    display: flex;
+    flex: 1 1 auto; }
+  nav div:nth-child(2) {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end; }
+    nav div:nth-child(2) ul {
+      list-style: none;
+      display: flex;
+      align-items: center; }
+      nav div:nth-child(2) ul li {
+        margin: 0 40px; }
+        nav div:nth-child(2) ul li:nth-child(1) {
+          margin-left: 0; }
+
+.landing {
+  background-image: url("../images/home_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin-top: -80px;
+  display: flex;
+  justify-content: flex-start; }
+  .landing .container {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333; }
+    .landing .container .landing-buttons {
+      display: flex;
+      flex-direction: row; }
+      .landing .container .landing-buttons a.button {
+        flex: none; }
+      .landing .container .landing-buttons a.button:first-child {
+        margin-right: 1rem; }
