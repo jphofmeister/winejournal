@@ -10,13 +10,13 @@ import store from './store';
 import PrivateRoute from './components/common/PrivateRoute';
 
 import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
+// import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import WineForm from './components/wine-form/WineForm';
-import Wine from './components/wine/Wine';
+import WinePage from './components/wine-page/WinePage';
 //import EditWine from './components/edit-wine/EditWine';
 
 import NotFound from './components/not-found/NotFound';
@@ -65,15 +65,11 @@ class App extends Component {
                 <PrivateRoute exact path="/add-wine" component={WineForm} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/wine/:id" component={Wine} />
+                <PrivateRoute exact path="/wine/:id" component={WinePage} />
               </Switch>
-              {/* <Switch>
-                <PrivateRoute exact path="/wine/:id/edit" component={EditWine} />
-              </Switch> */}
 
               <Route exact path="/not-found" component={NotFound} />
             </div>
-            <Footer />
           </div>
         </Router>
       </Provider>
