@@ -4,15 +4,16 @@
 
 .button, button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background-color: $gray;
-  color: $black;
+  padding: .625em 3.75em;
+  background-color: #fff;
+  color: $dark-purple;
+  font-weight: 700;
   text-decoration: none;
-  border: none;
+  border: 1px solid $purple-pink;
   border-radius: 5px;
 
   &:hover {
-    background-color: $darker-gray;
+    //background-color: $darker-gray;
     text-decoration: none;
     box-shadow: $box-shadow;
     cursor: pointer;
@@ -33,11 +34,11 @@
 }
 
 .btn-primary {
-  background-color: $purple;
+  background-color: $purple-pink;
   color: #fff;
 
   &:hover {
-    background-color: $darker-purple;
+    //background-color: $dark-purple;
   }
 }
 

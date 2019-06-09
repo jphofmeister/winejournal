@@ -46,15 +46,31 @@ body {
   margin: 0;
   font-family: "Helvetica Neue", "Lato", sans-serif;
   color: #222;
-  font-size: 1rem; }
+  font-size: 1rem;
+  line-height: 1.5; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", serif; }
+  font-family: "Playfair Display", serif;
+  line-height: 1.15;
+  margin: 2.75rem 0 1rem; }
 
 h1 {
-  font-size: 2em;
-  font-weight: 700;
-  margin-bottom: 1em; }
+  font-size: 4.209em;
+  color: #554d59;
+  font-weight: 900;
+  margin-top: 0; }
+
+h2 {
+  font-size: 3.157em; }
+
+h3 {
+  font-size: 2.369em; }
+
+h4 {
+  font-size: 1.777em; }
+
+h5 {
+  font-size: 1.333em; }
 
 a {
   color: #367CDF;
@@ -63,7 +79,7 @@ a {
     text-decoration: underline; }
 
 p {
-  margin-bottom: 1rem; }
+  margin-bottom: 2rem; }
 
 #root .app {
   display: flex;
@@ -81,16 +97,16 @@ section {
 
 .button, button {
   display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #DEDEDE;
-  color: #333;
+  padding: .625em 3.75em;
+  background-color: #fff;
+  color: #573D62;
+  font-weight: 700;
   text-decoration: none;
-  border: none;
+  border: 1px solid #9C52A7;
   border-radius: 5px; }
   .button:hover, button:hover {
-    background-color: #CECECE;
     text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: all .1s ease-in-out; }
 
@@ -104,10 +120,8 @@ section {
   text-align: center; }
 
 .btn-primary {
-  background-color: #882BDB;
+  background-color: #9C52A7;
   color: #fff; }
-  .btn-primary:hover {
-    background-color: #7522BE; }
 
 .wine-form {
   margin: 1rem 0;
@@ -174,9 +188,9 @@ input[type="radio"] {
   padding-bottom: .5rem;
   border: 1px solid #ddd;
   border-radius: 5px;
-  color: #333; }
+  color: #2B202F; }
   .wine-card:hover {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
     transition: all .1s ease-in-out; }
   .wine-card .card-image {
     background-color: #ddd;
@@ -208,15 +222,12 @@ input[type="radio"] {
       box-sizing: content-box; }
 
 .bg-image {
-  background-image: url("../images/login_bg.png");
-  background-color: #DEDEDE;
+  background-image: url("../images/home_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  margin-top: -60px;
-  display: flex;
-  justify-content: center; }
+  display: flex; }
   .bg-image .auth-container {
     flex: 0 1 500px;
     display: flex;
@@ -261,7 +272,6 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  margin-top: -80px;
   display: flex;
   justify-content: flex-start; }
   .landing .container {
@@ -270,6 +280,9 @@ nav {
     flex-direction: column;
     justify-content: center;
     color: #333; }
+    .landing .container p {
+      font-size: 1.125em;
+      max-width: 40vw; }
     .landing .container .landing-buttons {
       display: flex;
       flex-direction: row; }

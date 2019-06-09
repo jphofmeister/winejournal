@@ -23,16 +23,15 @@
 }
 
 .bg-image {
-  background-image: url('../images/login_bg.png');
-  background-color: $gray;
+  background-image: url('../images/home_bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   //padding-top: 20px;
-  margin-top: -60px;
+  //margin-top: -60px;
   display: flex;
-  justify-content: center; // center vertically on the page
+  //justify-content: center; // center container vertically on the page
 
   .auth-container {
     //padding-top: 80px;
