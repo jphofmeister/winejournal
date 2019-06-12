@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
+import { Link } from 'react-router-dom';
 import TextInput from '../common/TextInput';
+import wine_journal_logo from '../../images/wine_journal_logo.png';
 
 class Register extends Component {
   constructor() {
@@ -53,46 +55,56 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <section>
+      <section className="bg-image">
+        <Link to="/">
+          <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
+        </Link>
 
-        <h1>Sign Up</h1>
-        <p>
-          Create your Wine Journal account
-              </p>
-        <form noValidate onSubmit={this.onSubmit}>
-          <TextInput
-            placeholder="Name"
-            name="name"
-            value={this.state.name}
-            onChange={this.onChange}
-            error={errors.name}
-          />
-          <TextInput
-            placeholder="Email"
-            name="email"
-            type="email"
-            value={this.state.email}
-            onChange={this.onChange}
-            error={errors.email}
-          />
-          <TextInput
-            placeholder="Password"
-            name="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.onChange}
-            error={errors.password}
-          />
-          <TextInput
-            placeholder="Confirm Password"
-            name="password2"
-            type="password"
-            value={this.state.password2}
-            onChange={this.onChange}
-            error={errors.password2}
-          />
-          <input type="submit" />
-        </form>
+        <div className="container">
+
+          <h1>Sign Up</h1>
+          <p>Create your Wine Journal account</p>
+          <form className="auth-form" noValidate onSubmit={this.onSubmit}>
+            <TextInput
+              placeholder="Name"
+              name="name"
+              value={this.state.name}
+              onChange={this.onChange}
+              error={errors.name}
+              divClass="auth-form-row"
+            />
+            <TextInput
+              placeholder="Email"
+              name="email"
+              type="email"
+              value={this.state.email}
+              onChange={this.onChange}
+              error={errors.email}
+              divClass="auth-form-row"
+            />
+            <TextInput
+              placeholder="Password"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.onChange}
+              error={errors.password}
+              divClass="auth-form-row"
+            />
+            <TextInput
+              placeholder="Confirm Password"
+              name="password2"
+              type="password"
+              value={this.state.password2}
+              onChange={this.onChange}
+              error={errors.password2}
+              divClass="auth-form-row"
+            />
+            <div className="auth-form-row">
+              <button type="submit" className="btn-primary">Sign Up</button>
+            </div>
+          </form>
+        </div>
       </section>
     );
   }

@@ -1,0 +1,25 @@
+.auth-form {
+  margin: 1rem 0;
+  display: flex; //become flex container
+  flex-direction: column; //each form row is on its own line
+  align-items: stretch;
+    
+  .auth-form-row {
+    flex: 1 1 auto;
+    display: flex; //become container for inputs
+    justify-content: flex-start;
+    
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    button[type="submit"],
+    input[type="submit"] {
+      padding: 1rem;
+      flex: 0 1 500px;
+    }
+    
+    button, input[type="submit"] {
+      box-sizing: content-box
+    }
+  }
+}

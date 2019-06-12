@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Navbar from '../layout/Navbar';
 import WineFeed from '../wine-feed/WineFeed';
 import Spinner from '../common/Spinner';
 import { getWines } from '../../actions/wineActions';
@@ -25,6 +26,7 @@ class Dashboard extends Component {
 
     return (
       <section>
+        <Navbar />
         <h1>Dashboard</h1>
         <Link to="/add-wine" className="button add-wine-btn btn-primary">Add Wine</Link>
         {wineContent}

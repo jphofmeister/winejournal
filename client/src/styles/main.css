@@ -45,7 +45,7 @@ body {
   background-color: #fff;
   margin: 0;
   font-family: "Helvetica Neue", "Lato", sans-serif;
-  color: #222;
+  color: #2B202F;
   font-size: 1rem;
   line-height: 1.5; }
 
@@ -212,30 +212,16 @@ input[type="radio"] {
   .auth-form .auth-form-row {
     flex: 1 1 auto;
     display: flex;
-    justify-content: center; }
+    justify-content: flex-start; }
+    .auth-form .auth-form-row input[type="text"],
     .auth-form .auth-form-row input[type="email"],
     .auth-form .auth-form-row input[type="password"],
-    .auth-form .auth-form-row button[type="submit"] {
+    .auth-form .auth-form-row button[type="submit"],
+    .auth-form .auth-form-row input[type="submit"] {
       padding: 1rem;
       flex: 0 1 500px; }
-    .auth-form .auth-form-row button {
+    .auth-form .auth-form-row button, .auth-form .auth-form-row input[type="submit"] {
       box-sizing: content-box; }
-
-.bg-image {
-  background-image: url("../images/home_bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex; }
-  .bg-image .auth-container {
-    flex: 0 1 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #555; }
-    .bg-image .auth-container h1 {
-      margin-bottom: 0; }
 
 header {
   background-color: #f9f9f9;
@@ -266,27 +252,34 @@ nav {
         nav div:nth-child(2) ul li:nth-child(1) {
           margin-left: 0; }
 
-.landing {
+p {
+  font-size: 1.125em;
+  max-width: 40vw; }
+
+.landing-buttons {
+  display: flex;
+  flex-direction: row; }
+  .landing-buttons a.button {
+    flex: none; }
+  .landing-buttons a.button:first-child {
+    margin-right: 1rem; }
+
+.bg-image {
+  height: 100vh;
   background-image: url("../images/home_bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
   display: flex;
-  justify-content: flex-start; }
-  .landing .container {
-    flex: 0 1 auto;
+  flex-direction: column; }
+  .bg-image .logo-img {
+    max-height: 50px;
+    margin-top: 2em;
+    position: relative;
+    z-index: 1; }
+  .bg-image .container {
+    flex: 1 1 auto;
+    margin-top: -82px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #333; }
-    .landing .container p {
-      font-size: 1.125em;
-      max-width: 40vw; }
-    .landing .container .landing-buttons {
-      display: flex;
-      flex-direction: row; }
-      .landing .container .landing-buttons a.button {
-        flex: none; }
-      .landing .container .landing-buttons a.button:first-child {
-        margin-right: 1rem; }
+    justify-content: center; }

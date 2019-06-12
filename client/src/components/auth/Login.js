@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
+import { Link } from 'react-router-dom';
 import TextInput from '../common/TextInput';
+import wine_journal_logo from '../../images/wine_journal_logo.png';
 
 class Login extends Component {
   constructor() {
@@ -53,7 +55,11 @@ class Login extends Component {
 
     return (
       <section className="bg-image">
-        <div className="auth-container">
+        <Link to="/">
+          <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
+        </Link>
+
+        <div className="container">
           <h1>Log In</h1>
           <form className="auth-form" onSubmit={this.onSubmit}>
             <TextInput
