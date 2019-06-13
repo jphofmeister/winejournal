@@ -26,6 +26,10 @@ h1 {
   color: #554d59;
   font-weight: 900;
   margin-top: 0;
+
+  @media (max-width: 500px) {
+    font-size:3.157em;
+  }
 }
 
 h2 {

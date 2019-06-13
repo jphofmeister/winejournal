@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
-import { Link } from 'react-router-dom';
 import TextInput from '../common/TextInput';
-import wine_journal_logo from '../../images/wine_journal_logo.png';
+import SiteLayout from '../layout/SiteLayout';
 
 class Login extends Component {
   constructor() {
@@ -54,11 +53,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <section className="bg-image">
-        <Link to="/">
-          <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
-        </Link>
-
+      <SiteLayout>
         <div className="container">
           <h1>Log In</h1>
           <form className="auth-form" onSubmit={this.onSubmit}>
@@ -86,7 +81,7 @@ class Login extends Component {
             </div>
           </form>
         </div>
-      </section >
+      </SiteLayout>
     );
   }
 }

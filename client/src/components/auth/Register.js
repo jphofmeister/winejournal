@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
-import { Link } from 'react-router-dom';
 import TextInput from '../common/TextInput';
-import wine_journal_logo from '../../images/wine_journal_logo.png';
+import SiteLayout from '../layout/SiteLayout';
 
 class Register extends Component {
   constructor() {
@@ -55,13 +54,8 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <section className="bg-image">
-        <Link to="/">
-          <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
-        </Link>
-
+      <SiteLayout>
         <div className="container">
-
           <h1>Sign Up</h1>
           <p>Create your Wine Journal account</p>
           <form className="auth-form" noValidate onSubmit={this.onSubmit}>
@@ -105,7 +99,7 @@ class Register extends Component {
             </div>
           </form>
         </div>
-      </section>
+      </SiteLayout>
     );
   }
 }

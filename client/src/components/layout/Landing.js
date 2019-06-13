@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import wine_journal_logo from '../../images/wine_journal_logo.png';
+import SiteLayout from './SiteLayout';
 
 class Landing extends Component {
   componentDidMount() {
@@ -13,11 +13,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <section className="bg-image">
-        <Link to="/">
-          <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
-        </Link>
-
+      <SiteLayout>
         <div className="container">
           <h1>Record your<br />
             Wine Discoveries</h1>
@@ -33,7 +29,7 @@ class Landing extends Component {
             </Link>
           </div>
         </div >
-      </section >
+      </SiteLayout>
     )
   }
 }
