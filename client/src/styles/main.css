@@ -110,7 +110,7 @@ section {
   border-radius: 5px; }
   .button:hover, button:hover {
     text-decoration: none;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: all .1s ease-in-out; }
 
@@ -185,9 +185,9 @@ input[type="radio"] {
   margin-bottom: 1rem; }
 
 main {
-  height: 100vh;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  align-content: flex-start; }
 
 a.wine-card {
   display: grid;
@@ -197,11 +197,11 @@ a.wine-card {
   color: #2B202F;
   background-color: #fff;
   height: 150px;
-  width: 340px;
+  width: 330px;
   margin: 1em 0 0 1em;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }
   a.wine-card:hover {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
     transition: all .1s ease-in-out;
     text-decoration: none; }
   a.wine-card .card-image {
@@ -215,7 +215,7 @@ a.wine-card {
   a.wine-card .card-info {
     grid-area: card-info;
     width: 150px;
-    padding: 20px; }
+    padding: 15px; }
     a.wine-card .card-info h3 {
       font-size: 1em;
       margin: 0; }
@@ -263,7 +263,8 @@ a.wine-card {
 nav {
   grid-area: sidebar;
   padding: 40px;
-  background-color: #fff; }
+  background-color: #fff;
+  height: 100vh; }
   nav .logo-img {
     max-height: 33px;
     margin-bottom: 30px; }
