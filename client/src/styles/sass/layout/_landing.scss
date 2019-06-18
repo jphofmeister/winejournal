@@ -9,6 +9,11 @@ p {
       
   a.button {
     flex: none; // allow buttons to be sized based on their text and padding
+    padding: .625em 3.75em;
+
+    @media (max-width: 500px) {
+      padding: .625em 2.75em;
+    }
   }
 
   a.button:first-child {

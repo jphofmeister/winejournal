@@ -1,0 +1,18 @@
+.grid-container {
+  // display: grid;
+  // grid-template-areas: 
+  //   "sidebar main";
+  // width: 100vw;
+  // height: 100vh;
+  display: flex;
+  background-color: $background-gray;
+
+  nav {
+    //grid-area: sidebar;
+    flex: 0 1 188px;
+  }
+
+  main {
+    //grid-area: main;
+  }
+}

@@ -1,5 +1,8 @@
 @import '_buttons.scss';
 @import 'wine-form/_forms.scss';
-@import 'wine-feed/_winedisplay.scss';
+// @import 'wine-feed/_winedisplay.scss';
+@import 'wine-feed/_wine-feed.scss';
+@import 'wine-feed/_wine-card.scss';
 @import 'auth/_auth-form.scss';
 @import 'common/white-overlay';
+@import 'dashboard/dashboard';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Navbar from '../layout/Navbar';
+import Sidebar from '../layout/Sidebar';
 import WineFeed from '../wine-feed/WineFeed';
 import Spinner from '../common/Spinner';
 import { getWines } from '../../actions/wineActions';
@@ -25,12 +25,12 @@ class Dashboard extends Component {
     }
 
     return (
-      <section>
-        <Navbar />
-        <h1>Dashboard</h1>
-        <Link to="/add-wine" className="button add-wine-btn btn-primary">Add Wine</Link>
-        {wineContent}
-      </section>
+      <div className="grid-container">
+        <Sidebar />
+        <main>
+          {wineContent}
+        </main>
+      </div>
     )
   }
 }
