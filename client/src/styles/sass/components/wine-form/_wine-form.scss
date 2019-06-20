@@ -1,0 +1,67 @@
+h1.wine-form-heading {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  display: inline-block;
+}
+
+.wine-form {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: [uploader] 1fr [form] 1fr; 
+  margin-top: -157.45px;
+
+  .upload-container {
+    grid-column: uploader;
+    background-color: $background-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .upload-image-label {
+      color: $purple-black;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .upload-image {
+      width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    overflow: hidden;
+	    position: absolute;
+      z-index: -1;
+
+      &:focus + label {
+        outline: 1px dotted #000;
+	      outline: -webkit-focus-ring-color auto 5px;
+      }
+    
+    }
+  }
+
+  .normal-form-container {
+    grid-column: form;
+    padding: 2rem;
+
+    input[type="text"], textarea, .expand-link {
+      width: 100%;
+      max-width: 24rem;
+    }
+
+    .expand-link {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+  }
+}
+
+label {
+  display: block;
+  font-weight: 700;
+}

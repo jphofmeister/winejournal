@@ -12,7 +12,7 @@ class WineForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wineName: '', 
+      wineName: '',
       winery: '',
       wineType: '',
       notes: '',
@@ -120,13 +120,16 @@ class WineForm extends Component {
     ];
 
     const uploadInput = (
-      <div className="form-row" >
+      <div className="form-row">
+
         <input
           type="file"
           name="wineImage"
           id="wineImage"
           onChange={this.onChange}
+          className="upload-image"
         />
+        <label for="wineImage" className="upload-image-label">Upload an image</label>
       </div >
     );
 
@@ -140,77 +143,77 @@ class WineForm extends Component {
     );
 
     return (
-      <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
-        <div className="wine-form-container">
+      <div>
+        <h1 className="wine-form-heading">Create a Wine Entry</h1>
+        <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
 
-          {this.state.tempImageUrl ? displayImage : uploadInput}
+          <div className="upload-container">
+            {this.state.tempImageUrl ? displayImage : uploadInput}
+          </div>
 
-          <TextInput
-            name="wineName"
-            labelText="Wine Name"
-            placeholder="Ex: Picnic Blush"
-            value={this.state.wineName}
-            onChange={this.onChange}
-            error={errors.wineName}
-            divClass="wine-form-row"
-          />
+          <div className="normal-form-container">
+            <TextInput
+              name="wineName"
+              labelText="Wine Name"
+              placeholder="Ex: Picnic Blush"
+              value={this.state.wineName}
+              onChange={this.onChange}
+              error={errors.wineName}
+              divClass="wine-form-row"
+            />
 
-          <TextInput
-            name="winery"
-            labelText="Winery"
-            placeholder="Ex: Mallow Run"
-            value={this.state.winery}
-            onChange={this.onChange}
-            error={errors.winery}
-            divClass="wine-form-row"
-          />
+            <TextInput
+              name="winery"
+              labelText="Winery"
+              placeholder="Ex: Mallow Run"
+              value={this.state.winery}
+              onChange={this.onChange}
+              error={errors.winery}
+              divClass="wine-form-row"
+            />
 
-          <RadioButtons
-            mainLabel="Wine Type"
-            options={radioOptions}
-            error={errors.wineType}
-            divClass="wine-form-row"
-          />
+            <RadioButtons
+              mainLabel="Wine Type"
+              options={radioOptions}
+              error={errors.wineType}
+              divClass="wine-form-row"
+            />
 
-          <TextArea
-            name="notes"
-            labelText="Notes"
-            placeholder="Ex: Refreshing, easy drinking"
-            onChange={this.onChange}
-            value={this.state.notes}
-            divClass="wine-form-row"
-          />
+            <TextArea
+              name="notes"
+              labelText="Notes"
+              placeholder="Ex: Refreshing, easy drinking"
+              onChange={this.onChange}
+              value={this.state.notes}
+              divClass="wine-form-row"
+            />
 
-          <TextInput
-            name="varietal"
-            labelText="Varietal"
-            placeholder="Ex: Catawba, Merlot, Riesling"
-            value={this.state.varietal}
-            onChange={this.onChange}
-            error={errors.varietal}
-            divClass="wine-form-row"
-          />
+            <TextInput
+              name="varietal"
+              labelText="Varietal"
+              placeholder="Ex: Catawba, Merlot, Riesling"
+              value={this.state.varietal}
+              onChange={this.onChange}
+              error={errors.varietal}
+              divClass="wine-form-row"
+            />
 
-          {/* <a href="#"
-            className="expand-link"
-            onClick={this.toggleOptions}>
-            More Options
-          </a> */}
+            <button
+              className="expand-link"
+              onClick={this.toggleOptions}>
+              More Options
+            </button>
 
-          <button
-            className="expand-link"
-            onClick={this.toggleOptions}>
-            More Options
-          </button>
+            {!this.state.areOptionsHidden &&
+              <MoreWineOptions moreWineOptions={moreWineOptions} onChange={this.onChange} />
+            }
 
-          {!this.state.areOptionsHidden &&
-            <MoreWineOptions moreWineOptions={moreWineOptions} onChange={this.onChange} />
-          }
 
-        </div>
-        <input type="submit" value="SUBMIT" />
-        <input type="reset" value="CANCEL" />
-      </form>
+            <input type="submit" value="SUBMIT" />
+            <input type="reset" value="CANCEL" />
+          </div>
+        </form>
+      </div>
     )
   }
 }

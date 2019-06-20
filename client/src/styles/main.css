@@ -102,11 +102,11 @@ section {
 .button, button {
   display: inline-block;
   padding: .625em 2.8125em;
-  background-color: #fff;
+  background-color: #F3F2F3;
   color: #573D62;
   font-weight: 700;
   text-decoration: none;
-  border: 1px solid #9C52A7;
+  border: 1px solid #F3F2F3;
   border-radius: 5px; }
   .button:hover, button:hover {
     text-decoration: none;
@@ -125,36 +125,12 @@ section {
 
 .btn-primary {
   background-color: #9C52A7;
+  border: 1px solid #9C52A7;
   color: #fff; }
 
-.wine-form {
-  margin: 1rem 0;
-  background-color: #f9f9f9;
-  padding: 1rem 3%; }
-  .wine-form .wine-form-container {
-    max-width: 700px;
-    display: flex;
-    flex-direction: column; }
-    .wine-form .wine-form-container .wine-form-row {
-      flex: 1 1 auto;
-      display: flex;
-      flex-direction: row; }
-      .wine-form .wine-form-container .wine-form-row label {
-        flex: 1 1;
-        margin-top: .8rem; }
-      .wine-form .wine-form-container .wine-form-row input[type="text"],
-      .wine-form .wine-form-container .wine-form-row input[type="date"],
-      .wine-form .wine-form-container .wine-form-row input[type="number"],
-      .wine-form .wine-form-container .wine-form-row textarea {
-        flex: 2 1; }
-      .wine-form .wine-form-container .wine-form-row .radio-buttons {
-        flex: 2 1;
-        margin-top: .6rem; }
-        .wine-form .wine-form-container .wine-form-row .radio-buttons label {
-          margin-top: 0; }
-  .wine-form a {
-    display: block;
-    margin-bottom: 1rem; }
+.btn-outline {
+  background-color: #fff;
+  border: 1px solid #9C52A7; }
 
 button, input, select, textarea {
   font-family: inherit;
@@ -168,7 +144,7 @@ input[type="number"],
 textarea {
   margin-bottom: 1rem;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 5px;
   padding: .6rem 0 .6rem .6rem; }
 
 input[type="radio"] {
@@ -181,8 +157,52 @@ input[type="radio"] {
   flex-direction: column;
   align-items: flex-start; }
 
-.expand-link {
-  margin-bottom: 1rem; }
+h1.wine-form-heading {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  display: inline-block; }
+
+.wine-form {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: [uploader] 1fr [form] 1fr;
+  margin-top: -157.45px; }
+  .wine-form .upload-container {
+    grid-column: uploader;
+    background-color: #F3F2F3;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .wine-form .upload-container .upload-image-label {
+      color: #53445A; }
+      .wine-form .upload-container .upload-image-label:hover {
+        text-decoration: underline;
+        cursor: pointer; }
+    .wine-form .upload-container .upload-image {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1; }
+      .wine-form .upload-container .upload-image:focus + label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px; }
+  .wine-form .normal-form-container {
+    grid-column: form;
+    padding: 2rem; }
+    .wine-form .normal-form-container input[type="text"], .wine-form .normal-form-container textarea, .wine-form .normal-form-container .expand-link {
+      width: 100%;
+      max-width: 24rem; }
+    .wine-form .normal-form-container .expand-link {
+      display: block;
+      margin-bottom: 1rem; }
+
+label {
+  display: block;
+  font-weight: 700; }
 
 main {
   display: flex;

@@ -21,7 +21,7 @@ class Landing extends Component {
             This wine journal allows you to create simple-to-detailed entries of your wine tastings. Upload a picture, enter basic details, write tasting notes, and more.
           </p>
           <div className="landing-buttons">
-            <Link to="/login" className="button">
+            <Link to="/login" className="button btn-outline">
               LOGIN
             </Link>
             <Link to="/register" className="button btn-primary">
