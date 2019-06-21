@@ -147,14 +147,10 @@ textarea {
   border-radius: 5px;
   padding: .6rem 0 .6rem .6rem; }
 
-input[type="radio"] {
-  margin: .2rem .6rem .2rem 0;
-  padding-left: 0; }
-
 .radio-buttons {
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start; }
 
 h1.wine-form-heading {
@@ -196,9 +192,34 @@ h1.wine-form-heading {
     .wine-form .normal-form-container input[type="text"], .wine-form .normal-form-container textarea, .wine-form .normal-form-container .expand-link {
       width: 100%;
       max-width: 24rem; }
+    .wine-form .normal-form-container input[type="radio"] {
+      opacity: 0;
+      position: absolute; }
+      .wine-form .normal-form-container input[type="radio"]:focus + label {
+        outline: rgba(77, 97, 171, 0.5) auto 3px; }
+      .wine-form .normal-form-container input[type="radio"]:checked + label {
+        background-color: #3981ea;
+        color: #fff; }
+    .wine-form .normal-form-container .radio-label {
+      font-weight: 400;
+      padding: 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      text-align: center;
+      border-radius: 5px; }
+      .wine-form .normal-form-container .radio-label:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+        cursor: pointer; }
+      .wine-form .normal-form-container .radio-label img {
+        width: 75px;
+        height: 75px;
+        display: block; }
     .wine-form .normal-form-container .expand-link {
       display: block;
       margin-bottom: 1rem; }
+    .wine-form .normal-form-container input[type="submit"] {
+      margin-right: 1rem; }
 
 label {
   display: block;

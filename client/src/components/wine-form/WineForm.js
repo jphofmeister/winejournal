@@ -8,6 +8,13 @@ import { addWine } from '../../actions/wineActions';
 import RadioButtons from '../common/RadioButtons';
 import MoreWineOptions from './MoreWineOptions';
 
+import wine_type_red from '../../images/wine_type_red.png';
+import wine_type_white from '../../images/wine_type_white.png';
+import wine_type_rose from '../../images/wine_type_rose.png';
+import wine_type_sparkling from '../../images/wine_type_sparkling.png';
+import wine_type_dessert from '../../images/wine_type_dessert.png';
+import wine_type_port from '../../images/wine_type_port.png';
+
 class WineForm extends Component {
   constructor(props) {
     super(props);
@@ -111,17 +118,16 @@ class WineForm extends Component {
     }
 
     const radioOptions = [
-      { name: 'wineType', value: 'Red', checked: this.state.wineType === 'Red', onChange: this.onChange },
-      { name: 'wineType', value: 'White', checked: this.state.wineType === 'White', onChange: this.onChange },
-      { name: 'wineType', value: 'Sparkling', checked: this.state.wineType === 'Sparkling', onChange: this.onChange },
-      { name: 'wineType', value: 'Rosé', checked: this.state.wineType === 'Rosé', onChange: this.onChange },
-      { name: 'wineType', value: 'Dessert', checked: this.state.wineType === 'Dessert', onChange: this.onChange },
-      { name: 'wineType', value: 'Fortified', checked: this.state.wineType === 'Fortified', onChange: this.onChange }
+      { name: 'wineType', image: wine_type_red, value: 'Red', checked: this.state.wineType === 'Red', onChange: this.onChange },
+      { name: 'wineType', image: wine_type_white, value: 'White', checked: this.state.wineType === 'White', onChange: this.onChange },
+      { name: 'wineType', image: wine_type_rose, value: 'Rosé', checked: this.state.wineType === 'Rosé', onChange: this.onChange },
+      { name: 'wineType', image: wine_type_sparkling, value: 'Sparkling', checked: this.state.wineType === 'Sparkling', onChange: this.onChange },
+      { name: 'wineType', image: wine_type_dessert, value: 'Dessert', checked: this.state.wineType === 'Dessert', onChange: this.onChange },
+      { name: 'wineType', image: wine_type_port, value: 'Fortified', checked: this.state.wineType === 'Fortified', onChange: this.onChange }
     ];
 
     const uploadInput = (
       <div className="form-row">
-
         <input
           type="file"
           name="wineImage"
@@ -209,8 +215,8 @@ class WineForm extends Component {
             }
 
 
-            <input type="submit" value="SUBMIT" />
-            <input type="reset" value="CANCEL" />
+            <input type="submit" value="Submit" className="button btn-primary" />
+            <input type="reset" value="Cancel" className="button" />
           </div>
         </form>
       </div>

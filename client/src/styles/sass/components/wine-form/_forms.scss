@@ -15,15 +15,15 @@ textarea {
   padding: .6rem 0 .6rem .6rem;
 }
 
-input[type="radio"] {
-  margin: .2rem .6rem .2rem 0; //unless I have more radio options, can remove in future
-  padding-left: 0;
-}
+// input[type="radio"] {
+//   margin: .2rem .6rem .2rem 0; //unless I have more radio options, can remove in future
+//   padding-left: 0;
+// }
 
 .radio-buttons {
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
 }
 

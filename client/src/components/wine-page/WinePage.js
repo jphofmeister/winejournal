@@ -52,9 +52,9 @@ class WinePage extends Component {
     }
 
     return (
-      <section>
+      <div>
         {wineContent}
-      </section>
+      </div>
     )
   }
 }

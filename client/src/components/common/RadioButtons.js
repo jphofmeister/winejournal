@@ -16,17 +16,21 @@ const RadioButtons = ({
 }) => {
 
   const radioOptions = options.map((option, i) => (
-    <label key={i}>
+    <span key={i}>
       <input
         type="radio"
+        id={option.value}
         name={option.name}
         value={option.value}
         onChange={option.onChange}
         checked={option.checked}
         disabled={option.disabled}
       />
-      {option.value}
-    </label>
+      <label key={i} htmlFor={option.value} onClick={option.onClick} className="radio-label">
+        <img key={option.image} src={option.image} alt="" />
+        {option.value}
+      </label>
+    </span>
   ));
 
   return (
