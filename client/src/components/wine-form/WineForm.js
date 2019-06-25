@@ -92,11 +92,15 @@ class WineForm extends Component {
     //document.getElementById("wineImage").value = "";
   }
 
-  onReset() {
+  onReset(e) {
+    e.preventDefault();
+
     this.setState({
       isFormHidden: true,
       areOptionsHidden: true
     });
+
+    this.props.history.push('/dashboard');
   }
 
   toggleOptions(e) {

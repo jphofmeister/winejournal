@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
 import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import { editWine } from '../../actions/wineActions';
@@ -38,13 +37,9 @@ class EditWine extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onReset = this.onReset.bind(this);
     this.onDeleteImage = this.onDeleteImage.bind(this);
+    this.handleToggleShowEditForm = this.handleToggleShowEditForm.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.props.getWine(this.props.match.params.id);
-  // }
 
   componentDidMount() {
     const { wine } = this.props;
@@ -94,21 +89,6 @@ class EditWine extends Component {
 
     const wineId = this.props.wine._id;
 
-    // const updatedWine = {
-    //   wineName: this.state.wineName,
-    //   winery: this.state.winery,
-    //   wineType: this.state.wineType,
-    //   notes: this.state.notes,
-    //   varietal: this.state.varietal,
-    //   tasteDate: this.state.tasteDate,
-    //   tasteLocation: this.state.tasteLocation,
-    //   rating: this.state.rating,
-    //   alcoholContent: this.state.alcoholContent,
-    //   price: this.state.price,
-    //   vintage: this.state.vintage,
-    //   wineImage: this.state.wineImage
-    // };
-
     const updatedWineData = new FormData();
     updatedWineData.append('wineImage', this.state.wineImage);
     updatedWineData.append('wineName', this.state.wineName);
@@ -130,8 +110,6 @@ class EditWine extends Component {
   }
 
   onChange(e) {
-    // const newValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    // this.setState({ [e.target.name]: newValue });
     let newValue;
 
     if (e.target.type === 'file') {
@@ -153,11 +131,9 @@ class EditWine extends Component {
     });
   }
 
-  onReset = (event) => {
-    this.setState({
-      isFormHidden: true,
-      areOptionsHidden: true
-    });
+  handleToggleShowEditForm() {
+    const newValue = !this.props.showEditForm;
+    this.props.onClick(newValue);
   }
 
 
@@ -198,7 +174,7 @@ class EditWine extends Component {
     return (
       <div>
         <h1 className="wine-form-heading">Edit Wine Entry</h1>
-        <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
+        <form className="wine-form" onSubmit={this.onSubmit} encType="multipart/form-data">
           <div className="upload-container">
             {this.state.tempImageUrl ? displayImage : uploadInput}
           </div>
@@ -318,7 +294,7 @@ class EditWine extends Component {
 
 
             <input type="submit" value="Save" className="button btn-primary" />
-            <input type="reset" value="Cancel" className="button" />
+            <button className="button" onClick={this.handleToggleShowEditForm}>Cancel</button>
 
           </div>
         </form>
@@ -329,12 +305,10 @@ class EditWine extends Component {
 
 EditWine.propTypes = {
   editWine: PropTypes.func.isRequired,
-  //wine: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  //wine: state.wine,
   errors: state.errors
 })
 

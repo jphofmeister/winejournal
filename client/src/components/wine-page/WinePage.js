@@ -14,7 +14,7 @@ class WinePage extends Component {
       showEditForm: false
     }
 
-    this.toggleOptions = this.toggleOptions.bind(this);
+    this.toggleShowEditForm = this.toggleShowEditForm.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
   }
 
@@ -22,7 +22,7 @@ class WinePage extends Component {
     this.props.getWine(this.props.match.params.id);
   }
 
-  toggleOptions(newValue) {
+  toggleShowEditForm(newValue) {
     this.setState({
       showEditForm: newValue
     });
@@ -43,11 +43,11 @@ class WinePage extends Component {
       if (this.state.showEditForm === false) {
         wineContent = <WineInfo
           wine={wine}
-          onClick={this.toggleOptions}
+          onClick={this.toggleShowEditForm}
           showEditForm={this.state.showEditForm}
           onDeleteClick={this.onDeleteClick} />
       } else {
-        wineContent = <EditWine wine={wine} onClick={this.toggleOptions} showEditForm={this.state.showEditForm} />
+        wineContent = <EditWine wine={wine} onClick={this.toggleShowEditForm} showEditForm={this.state.showEditForm} />
       }
     }
 

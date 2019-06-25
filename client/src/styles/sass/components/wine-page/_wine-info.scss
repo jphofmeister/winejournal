@@ -1,0 +1,61 @@
+.wine-info {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0;
+  grid-template-areas: 
+    "breadcrumbs breadcrumbs"
+    "heading heading"
+    "img content";
+
+  .breadcrumbs {
+    grid-area: breadcrumbs;
+    height: 2rem;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+
+  .heading {
+    grid-area: heading;
+    padding-left: 2rem;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      line-height: 1;
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .edit-wine-button {
+      padding: 0;
+      border: 0;
+
+      &:hover {
+        box-shadow: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .wine-img-container {
+    grid-area: img;
+    background-color: $background-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -150px;
+
+    img {
+      max-width: 80%;
+    }
+  }
+
+  .wine-content {
+    grid-area: content;
+    padding-left: 2rem;
+  }
+}
+
