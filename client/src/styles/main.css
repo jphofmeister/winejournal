@@ -96,9 +96,6 @@ section {
   padding-bottom: 0;
   padding-left: 3%; }
 
-.breadcrumbs {
-  margin-bottom: 1rem; }
-
 .button, button {
   display: inline-block;
   padding: .625em 2.8125em;
@@ -228,45 +225,53 @@ label {
   font-weight: 700; }
 
 .wine-info {
-  min-height: 100vh;
   width: 100vw;
   display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(3.5rem, 1fr));
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0;
-  grid-template-areas: "breadcrumbs breadcrumbs" "heading heading" "img content"; }
+  grid-template-areas: "breadcrumbs breadcrumbs" "img content"; }
   .wine-info .breadcrumbs {
     grid-area: breadcrumbs;
-    height: 2rem;
     padding-top: 1rem;
-    padding-left: 2rem; }
-  .wine-info .heading {
-    grid-area: heading;
     padding-left: 2rem;
-    margin-top: -20px;
-    position: relative;
+    position: absolute;
     z-index: 2; }
-    .wine-info .heading h1 {
-      line-height: 1;
-      display: inline-block;
-      margin-right: 1rem; }
-    .wine-info .heading .edit-wine-button {
-      padding: 0;
-      border: 0; }
-      .wine-info .heading .edit-wine-button:hover {
-        box-shadow: none;
-        text-decoration: underline; }
   .wine-info .wine-img-container {
     grid-area: img;
     background-color: #F3F2F3;
+    height: calc(100vh - 4rem);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -150px; }
+    justify-items: stretch;
+    flex-direction: column; }
+    .wine-info .wine-img-container .wine-heading {
+      padding-left: 2rem;
+      display: flex;
+      align-items: flex-end; }
+      .wine-info .wine-img-container .wine-heading h1 {
+        line-height: 1;
+        display: inline-block;
+        margin-right: 1rem;
+        margin-bottom: 0; }
+      .wine-info .wine-img-container .wine-heading .edit-wine-button {
+        padding: 0;
+        border: 0;
+        margin-bottom: 2px; }
+        .wine-info .wine-img-container .wine-heading .edit-wine-button:hover {
+          box-shadow: none;
+          text-decoration: underline; }
     .wine-info .wine-img-container img {
-      max-width: 80%; }
+      max-width: 80%;
+      align-self: center;
+      justify-self: center; }
   .wine-info .wine-content {
     grid-area: content;
     padding-left: 2rem; }
+    .wine-info .wine-content .description-row {
+      margin-bottom: 1.5rem; }
+      .wine-info .wine-content .description-row .description-label {
+        color: #7B737D;
+        font-weight: 700; }
 
 main {
   display: flex;

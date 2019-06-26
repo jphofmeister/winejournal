@@ -32,24 +32,30 @@ class WineInfo extends Component {
           <Link to="/dashboard">Dashboard</Link> >
           <Link to={`/wine/${wine._id}`}> {wine.wineName}</Link>
         </div>
-        <div className="heading">
+        {/* <div className="heading">
           <h1>{wine.wineName}</h1>
           <button onClick={this.handleToggleShowEditForm} className="edit-wine-button">Edit Wine</button>
-        </div>
+        </div> */}
         <div className="wine-img-container">
-          <img src={wine.wineImageUrl} alt="" />
+          <div className="wine-heading">
+            <h1>{wine.wineName}</h1>
+            <button onClick={this.handleToggleShowEditForm} className="edit-wine-button">Edit Wine</button>
+          </div>
+          <div>
+            <img src={wine.wineImageUrl} alt="" />
+          </div>
         </div>
         <div className="wine-content">
-          <p className="wine-row">Winery: {wine.winery} </p>
-          <p className="wine-row">Wine Type: {wine.wineType} </p>
-          <p className="wine-row">Notes: {wine.notes} </p>
-          <p className="wine-row">Varietal: {wine.varietal} </p>
-          <p className="wine-row">Tasted On: {date}</p>
-          <p className="wine-row">Location Tasted At: {wine.tasteLocation}</p>
-          <p className="wine-row">Rating: {wine.rating} Stars</p>
-          <p className="wine-row">Alcohol Content: {wine.alcoholContent}%</p>
-          <p className="wine-row">Price: ${wine.price}</p>
-          <p className="wine-row">Vintage: {wine.vintage}</p>
+          <div className="description-row"><div className="description-label">Winery:</div> {wine.winery} </div>
+          <div className="description-row"><div className="description-label">Wine Type:</div> {wine.wineType} </div>
+          <div className="description-row"><div className="description-label">Notes:</div> {wine.notes} </div>
+          <div className="description-row"><div className="description-label">Varietal:</div> {wine.varietal} </div>
+          <div className="description-row"><div className="description-label">Tasted On:</div> {date}</div>
+          <div className="description-row"><div className="description-label">Location Tasted At:</div> {wine.tasteLocation}</div>
+          <div className="description-row"><div className="description-label">Rating:</div> {wine.rating} Stars</div>
+          <div className="description-row"><div className="description-label">Alcohol Content:</div> {wine.alcoholContent}%</div>
+          <div className="description-row"><div className="description-label">Price:</div> ${wine.price}</div>
+          <div className="description-row"><div className="description-label">Vintage:</div> {wine.vintage}</div>
           <div>
             <button onClick={this.handleDeleteClick.bind(this, wine._id)}>
               <i className="fas fa-times" /> Delete
