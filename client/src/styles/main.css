@@ -129,6 +129,11 @@ section {
   background-color: #fff;
   border: 1px solid #9C52A7; }
 
+.delete {
+  color: #fff;
+  background-color: #C44A4A;
+  border: 1px solid #C44A4A; }
+
 button, input, select, textarea {
   font-family: inherit;
   font-size: 100%; }
@@ -237,33 +242,38 @@ label {
     padding-left: 2rem;
     position: absolute;
     z-index: 2; }
-  .wine-info .wine-img-container {
+  .wine-info .wine-heading-img-container {
     grid-area: img;
     background-color: #F3F2F3;
     height: calc(100vh - 4rem);
     display: flex;
     justify-items: stretch;
     flex-direction: column; }
-    .wine-info .wine-img-container .wine-heading {
+    .wine-info .wine-heading-img-container .wine-heading {
       padding-left: 2rem;
       display: flex;
       align-items: flex-end; }
-      .wine-info .wine-img-container .wine-heading h1 {
+      .wine-info .wine-heading-img-container .wine-heading h1 {
         line-height: 1;
         display: inline-block;
         margin-right: 1rem;
         margin-bottom: 0; }
-      .wine-info .wine-img-container .wine-heading .edit-wine-button {
+      .wine-info .wine-heading-img-container .wine-heading .edit-wine-button {
         padding: 0;
         border: 0;
         margin-bottom: 2px; }
-        .wine-info .wine-img-container .wine-heading .edit-wine-button:hover {
+        .wine-info .wine-heading-img-container .wine-heading .edit-wine-button:hover {
           box-shadow: none;
           text-decoration: underline; }
-    .wine-info .wine-img-container img {
-      max-width: 80%;
-      align-self: center;
-      justify-self: center; }
+    .wine-info .wine-heading-img-container .wine-img {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center; }
+      .wine-info .wine-heading-img-container .wine-img img {
+        max-width: 80%;
+        align-self: center;
+        justify-self: center; }
   .wine-info .wine-content {
     grid-area: content;
     padding-left: 2rem; }

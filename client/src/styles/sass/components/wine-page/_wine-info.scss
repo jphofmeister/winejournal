@@ -5,38 +5,28 @@
   grid-template-rows: repeat(auto-fill, minmax(3.5rem, 1fr));
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0;
-  // grid-template-areas: 
-  //   "breadcrumbs breadcrumbs"
-  //   "heading content"
-  //   "img content";
   grid-template-areas: 
     "breadcrumbs breadcrumbs"
     "img content";
 
   .breadcrumbs {
     grid-area: breadcrumbs;
-    //height: 2rem;
     padding-top: 1rem;
     padding-left: 2rem;
     position: absolute;
     z-index: 2;
   }
 
-  .wine-img-container {
+  .wine-heading-img-container {
     grid-area: img;
     background-color: $background-gray;
     height: calc(100vh - 4rem);
     display: flex;
-    //justify-content: space-between;
     justify-items: stretch;
-    // align-items: center;
     flex-direction: column;
 
     .wine-heading {
       padding-left: 2rem;
-      // margin-top: -20px;
-      // position: relative;
-      // z-index: 2;
       display: flex;
       align-items: flex-end;
   
@@ -59,11 +49,19 @@
       }
     }
 
-    img {
-      max-width: 80%;
-      align-self: center;
-      justify-self: center;
+    .wine-img {
+      height: 100%; //fill rest of space and center the image inside it
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      img {
+        max-width: 80%;
+        align-self: center;
+        justify-self: center;
+      }
     }
+    
   }
 
   .wine-content {
