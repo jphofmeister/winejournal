@@ -6,7 +6,7 @@ h1.wine-form-heading {
 }
 
 .wine-form {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: [uploader] 1fr [form] 1fr; 
@@ -40,11 +40,21 @@ h1.wine-form-heading {
         outline: 1px dotted #000;
 	      outline: -webkit-focus-ring-color auto 5px;
       }
-    
     }
 
-    img {
-      max-width: 80%;
+    .uploaded-image-container{
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        max-height: 500px;
+        max-width: 80%; 
+      }
+
+      a {
+        margin-top: 1rem;
+      }
     }
   }
 

@@ -54,6 +54,7 @@ a {
 
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 
 }
@@ -63,16 +64,10 @@ p {
 }
 
 #root {
-
   .app {
     display: flex;
     flex-direction: column;
   }
-}
-
-main {
-
-
 }
 
 section {

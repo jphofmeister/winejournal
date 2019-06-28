@@ -144,10 +144,10 @@ class WineForm extends Component {
     );
 
     const displayImage = (
-      <div className="form-row" >
+      <div className="uploaded-image-container" >
         <img src={this.state.tempImageUrl} alt="" />
         <a onClick={this.onDeleteImage}>
-          <i className="fas fa-times" />
+          <i className="fas fa-times" /> Delete and Upload New Image
         </a>
       </div>
     );
