@@ -16,7 +16,11 @@ class FileUploader extends Component {
 
     window.cloudinary.openUploadWidget({
       cloudName: cloudName,
-      uploadPreset: uploadPreset
+      uploadPreset: uploadPreset,
+      multiple: false,
+      cropping: true,
+      croppingAspectRatio: 1,
+      singleUploadAutoClose: false
     }, (error, result) => { this.props.onUploadImage(result) });
   }
 
