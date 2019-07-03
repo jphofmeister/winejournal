@@ -14,7 +14,7 @@ const TextInput = ({
   onChange,
   disabled,
   step,
-  divClass 
+  divClass
 }) => {
   return (
     <div className={divClass}>

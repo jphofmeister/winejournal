@@ -6,6 +6,7 @@ import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import { addWine } from '../../actions/wineActions';
 import RadioButtons from '../common/RadioButtons';
+import FileUploader from '../common/FileUploader';
 import MoreWineOptions from './MoreWineOptions';
 
 import wine_type_red from '../../images/wine_type_red.png';
@@ -31,7 +32,6 @@ class WineForm extends Component {
       price: '',
       vintage: '',
       wineImage: null,
-      tempImageUrl: null,
       areOptionsHidden: true,
       errors: {}
     }
@@ -40,6 +40,7 @@ class WineForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onReset = this.onReset.bind(this);
     this.toggleOptions = this.toggleOptions.bind(this);
+    this.onUploadImage = this.onUploadImage.bind(this);
     this.onDeleteImage = this.onDeleteImage.bind(this);
   }
 
@@ -52,10 +53,7 @@ class WineForm extends Component {
   onChange(e) {
     let newValue;
 
-    if (e.target.type === 'file') {
-      this.setState({ tempImageUrl: URL.createObjectURL(e.target.files[0]) })
-      newValue = e.target.files[0];
-    } else if (e.target.type === 'checkbox') {
+    if (e.target.type === 'checkbox') {
       newValue = e.target.checked;
     } else {
       newValue = e.target.value;
@@ -67,21 +65,42 @@ class WineForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const wineData = new FormData();
-    wineData.append('wineImage', this.state.wineImage);
-    wineData.append('wineName', this.state.wineName);
-    wineData.append('winery', this.state.winery);
-    wineData.append('wineType', this.state.wineType);
-    wineData.append('notes', this.state.notes);
-    wineData.append('varietal', this.state.varietal);
-    wineData.append('tasteDate', this.state.tasteDate);
-    wineData.append('tasteLocation', this.state.tasteLocation);
-    wineData.append('rating', this.state.rating);
-    wineData.append('alcoholContent', this.state.alcoholContent);
-    wineData.append('price', this.state.price);
-    wineData.append('vintage', this.state.vintage);
+    // const wineData = new FormData();
+    // wineData.append('wineImage', this.state.wineImage);
+    // wineData.append('wineName', this.state.wineName);
+    // wineData.append('winery', this.state.winery);
+    // wineData.append('wineType', this.state.wineType);
+    // wineData.append('notes', this.state.notes);
+    // wineData.append('varietal', this.state.varietal);
+    // wineData.append('tasteDate', this.state.tasteDate);
+    // wineData.append('tasteLocation', this.state.tasteLocation);
+    // wineData.append('rating', this.state.rating);
+    // wineData.append('alcoholContent', this.state.alcoholContent);
+    // wineData.append('price', this.state.price);
+    // wineData.append('vintage', this.state.vintage);
+
+    const wineData = {
+      wineImage: this.state.wineImage,
+      wineName: this.state.wineName,
+      winery: this.state.winery,
+      wineType: this.state.wineType,
+      notes: this.state.notes,
+      varietal: this.state.varietal,
+      tasteDate: this.state.tasteDate,
+      tasteLocation: this.state.tasteLocation,
+      rating: this.state.rating,
+      alcoholContent: this.state.alcoholContent,
+      price: this.state.price,
+      vintage: this.state.vintage,
+    }
 
     this.props.addWine(wineData, this.props.history);
+  }
+
+  onUploadImage(imageUrl) {
+    this.setState({
+      wineImage: imageUrl
+    });
   }
 
   onDeleteImage() {
@@ -89,7 +108,6 @@ class WineForm extends Component {
       tempImageUrl: null,
       wineImage: null
     });
-    //document.getElementById("wineImage").value = "";
   }
 
   onReset(e) {
@@ -131,21 +149,12 @@ class WineForm extends Component {
     ];
 
     const uploadInput = (
-      <div className="form-row">
-        <input
-          type="file"
-          name="wineImage"
-          id="wineImage"
-          onChange={this.onChange}
-          className="upload-image"
-        />
-        <label for="wineImage" className="upload-image-label">Upload an image</label>
-      </div >
+      <FileUploader onUploadImage={this.onUploadImage} />
     );
 
     const displayImage = (
       <div className="uploaded-image-container" >
-        <img src={this.state.tempImageUrl} alt="" />
+        <img src={this.state.wineImage} alt="" />
         <a onClick={this.onDeleteImage}>
           <i className="fas fa-times" /> Delete and Upload New Image
         </a>
@@ -158,7 +167,7 @@ class WineForm extends Component {
         <form className="wine-form" onSubmit={this.onSubmit} onReset={this.onReset} encType="multipart/form-data">
 
           <div className="upload-container">
-            {this.state.tempImageUrl ? displayImage : uploadInput}
+            {this.state.wineImage ? displayImage : uploadInput}
           </div>
 
           <div className="normal-form-container">
