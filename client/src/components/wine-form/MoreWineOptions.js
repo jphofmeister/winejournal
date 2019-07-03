@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextInput from '../common/TextInput';
-// import TextArea from '../common/TextArea';
-// import RadioButtons from '../common/RadioButtons';
 
 class MoreWineOptions extends Component {
   constructor(props) {

@@ -65,20 +65,6 @@ class WineForm extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    // const wineData = new FormData();
-    // wineData.append('wineImage', this.state.wineImage);
-    // wineData.append('wineName', this.state.wineName);
-    // wineData.append('winery', this.state.winery);
-    // wineData.append('wineType', this.state.wineType);
-    // wineData.append('notes', this.state.notes);
-    // wineData.append('varietal', this.state.varietal);
-    // wineData.append('tasteDate', this.state.tasteDate);
-    // wineData.append('tasteLocation', this.state.tasteLocation);
-    // wineData.append('rating', this.state.rating);
-    // wineData.append('alcoholContent', this.state.alcoholContent);
-    // wineData.append('price', this.state.price);
-    // wineData.append('vintage', this.state.vintage);
-
     const wineData = {
       wineImage: this.state.wineImage,
       wineName: this.state.wineName,
@@ -97,10 +83,12 @@ class WineForm extends Component {
     this.props.addWine(wineData, this.props.history);
   }
 
-  onUploadImage(imageUrl) {
-    this.setState({
-      wineImage: imageUrl
-    });
+  onUploadImage(resultEvent) {
+    if (resultEvent.event === 'success') {
+      this.setState({
+        wineImage: resultEvent.info.secure_url
+      });
+    }
   }
 
   onDeleteImage() {

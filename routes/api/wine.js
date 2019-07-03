@@ -89,10 +89,6 @@ router.post(
     if (req.body.alcoholContent) newWine.alcoholContent = req.body.alcoholContent;
     if (req.body.price) newWine.price = req.body.price;
     if (req.body.vintage) newWine.vintage = req.body.vintage;
-    // if (req.file) {
-    //   if (req.file.url) newWine.wineImageUrl = req.file.url;
-    //   if (req.file.public_id) newWine.wineImageId = req.file.public_id;
-    // }
     if (req.body.wineImage) newWine.wineImageUrl = req.body.wineImage;
 
     // Create

@@ -28,7 +28,7 @@ class Sidebar extends Component {
         </li>
         <li>
           <a href="" onClick={this.onLogoutClick.bind(this)}>
-            <i class="fas fa-sign-out-alt" /> Logout
+            <i className="fas fa-sign-out-alt" /> Logout
           </a>
         </li>
       </ul>

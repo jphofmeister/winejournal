@@ -5,6 +5,7 @@ import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import { editWine } from '../../actions/wineActions';
 import RadioButtons from '../common/RadioButtons';
+import FileUploader from '../common/FileUploader';
 import isEmpty from '../../validation/is-empty';
 
 import placeholder_image from '../wine-feed/placeholder_image.jpg';
@@ -31,12 +32,12 @@ class EditWine extends Component {
       price: '',
       vintage: '',
       wineImage: '',
-      tempImageUrl: null,
       errors: {}
     }
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onUploadImage = this.onUploadImage.bind(this);
     this.onDeleteImage = this.onDeleteImage.bind(this);
     this.handleToggleShowEditForm = this.handleToggleShowEditForm.bind(this);
   }
@@ -58,8 +59,7 @@ class EditWine extends Component {
     wine.alcoholContent = !isEmpty(wine.alcoholContent) ? wine.alcoholContent : '';
     wine.price = !isEmpty(wine.price) ? wine.price : '';
     wine.vintage = !isEmpty(wine.vintage) ? wine.vintage : '';
-    wine.wineImage = !isEmpty(wine.wineImage) ? wine.wineImage : '';
-    wine.tempImageUrl = !isEmpty(wine.wineImageUrl) ? wine.wineImageUrl : '';
+    wine.wineImage = !isEmpty(wine.wineImageUrl) ? wine.wineImageUrl : '';
 
     this.setState({
       wineName: wine.wineName,
@@ -73,8 +73,7 @@ class EditWine extends Component {
       alcoholContent: wine.alcoholContent,
       price: wine.price,
       vintage: wine.vintage,
-      wineImage: wine.wineImage,
-      tempImageUrl: wine.tempImageUrl
+      wineImage: wine.wineImage
     });
   }
 
@@ -89,19 +88,20 @@ class EditWine extends Component {
 
     const wineId = this.props.wine._id;
 
-    const updatedWineData = new FormData();
-    updatedWineData.append('wineImage', this.state.wineImage);
-    updatedWineData.append('wineName', this.state.wineName);
-    updatedWineData.append('winery', this.state.winery);
-    updatedWineData.append('wineType', this.state.wineType);
-    updatedWineData.append('notes', this.state.notes);
-    updatedWineData.append('varietal', this.state.varietal);
-    updatedWineData.append('tasteDate', this.state.tasteDate);
-    updatedWineData.append('tasteLocation', this.state.tasteLocation);
-    updatedWineData.append('rating', this.state.rating);
-    updatedWineData.append('alcoholContent', this.state.alcoholContent);
-    updatedWineData.append('price', this.state.price);
-    updatedWineData.append('vintage', this.state.vintage);
+    const updatedWineData = {
+      wineImage: this.state.wineImage,
+      wineName: this.state.wineName,
+      winery: this.state.winery,
+      wineType: this.state.wineType,
+      notes: this.state.notes,
+      varietal: this.state.varietal,
+      tasteDate: this.state.tasteDate,
+      tasteLocation: this.state.tasteLocation,
+      rating: this.state.rating,
+      alcoholContent: this.state.alcoholContent,
+      price: this.state.price,
+      vintage: this.state.vintage,
+    }
 
     this.props.editWine(wineId, updatedWineData, this.props.history);
 
@@ -112,16 +112,21 @@ class EditWine extends Component {
   onChange(e) {
     let newValue;
 
-    if (e.target.type === 'file') {
-      this.setState({ tempImageUrl: URL.createObjectURL(e.target.files[0]) })
-      newValue = e.target.files[0];
-    } else if (e.target.type === 'checkbox') {
+    if (e.target.type === 'checkbox') {
       newValue = e.target.checked;
     } else {
       newValue = e.target.value;
     }
 
     this.setState({ [e.target.name]: newValue });
+  }
+
+  onUploadImage(resultEvent) {
+    if (resultEvent.event === 'success') {
+      this.setState({
+        wineImage: resultEvent.info.secure_url
+      });
+    }
   }
 
   onDeleteImage() {
@@ -150,23 +155,14 @@ class EditWine extends Component {
     ];
 
     const uploadInput = (
-      <div className="form-row">
-        <input
-          type="file"
-          name="wineImage"
-          id="wineImage"
-          onChange={this.onChange}
-          className="upload-image"
-        />
-        <label for="wineImage" className="upload-image-label">Upload an image</label>
-      </div >
+      <FileUploader onUploadImage={this.onUploadImage} />
     );
 
     const displayImage = (
-      <div className="form-row" >
-        <img src={this.state.tempImageUrl} alt="" />
+      <div className="uploaded-image-container" >
+        <img src={this.state.wineImage} alt="" />
         <a onClick={this.onDeleteImage}>
-          <i className="fas fa-times" />
+          <i className="fas fa-times" /> Delete and Upload New Image
         </a>
       </div>
     );
@@ -176,7 +172,7 @@ class EditWine extends Component {
         <h1 className="wine-form-heading">Edit Wine Entry</h1>
         <form className="wine-form" onSubmit={this.onSubmit} encType="multipart/form-data">
           <div className="upload-container">
-            {this.state.tempImageUrl ? displayImage : uploadInput}
+            {this.state.wineImage ? displayImage : uploadInput}
           </div>
 
           <div className="normal-form-container">
@@ -291,7 +287,6 @@ class EditWine extends Component {
               error={errors.vintage}
               divClass="wine-form-row"
             />
-
 
             <input type="submit" value="Save" className="button btn-primary" />
             <button className="button" onClick={this.handleToggleShowEditForm}>Cancel</button>

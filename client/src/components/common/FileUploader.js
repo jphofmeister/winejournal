@@ -8,16 +8,7 @@ class FileUploader extends Component {
   constructor(props) {
     super(props);
 
-    this.checkUploadResult = this.checkUploadResult.bind(this);
     this.uploadWidget = this.uploadWidget.bind(this);
-  }
-
-  checkUploadResult(resultEvent) {
-    if (resultEvent.event === 'success') {
-      this.props.onUploadImage(resultEvent.info.secure_url.toString());
-    } else {
-      console.log('failure');
-    }
   }
 
   uploadWidget(e) {
@@ -26,7 +17,7 @@ class FileUploader extends Component {
     window.cloudinary.openUploadWidget({
       cloudName: cloudName,
       uploadPreset: uploadPreset
-    }, (error, result) => { this.checkUploadResult(result) });
+    }, (error, result) => { this.props.onUploadImage(result) });
   }
 
   render() {
