@@ -65,7 +65,10 @@ h1 {
       font-size: 3.157em; } }
 
 h2 {
-  font-size: 3.157em; }
+  font-size: 3.157em;
+  color: #573D62;
+  margin: 2rem 0 0 1rem;
+  font-family: "Helvetica Neue", "Lato", sans-serif; }
 
 h3 {
   font-size: 2.369em; }
@@ -174,11 +177,12 @@ h1.wine-form-heading {
     display: flex;
     justify-content: center;
     align-items: center; }
-    .wine-form .upload-container .upload-image-label {
+    .wine-form .upload-container .upload-image-button {
       color: #53445A; }
-      .wine-form .upload-container .upload-image-label:hover {
+      .wine-form .upload-container .upload-image-button:hover {
         text-decoration: underline;
-        cursor: pointer; }
+        cursor: pointer;
+        box-shadow: none; }
     .wine-form .upload-container .upload-image {
       width: 0.1px;
       height: 0.1px;
@@ -291,7 +295,12 @@ label {
         color: #7B737D;
         font-weight: 700; }
 
-main {
+.wine-feed {
+  margin-bottom: 3rem; }
+  .wine-feed section {
+    padding: 0; }
+
+.wine-card-group {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start; }
@@ -362,16 +371,18 @@ a.wine-card {
       filter: blur(3px); } }
 
 .grid-container {
+  height: 100vh;
   display: flex;
   background-color: #F3F2F3; }
   .grid-container nav {
-    flex: 0 1 188px; }
+    flex: 0 0 188px; }
+  .grid-container main {
+    flex: 1 1 auto;
+    overflow: auto; }
 
 nav {
-  grid-area: sidebar;
   padding: 40px;
-  background-color: #fff;
-  height: 100vh; }
+  background-color: #fff; }
   nav .logo-img {
     max-height: 33px;
     margin-bottom: 30px; }

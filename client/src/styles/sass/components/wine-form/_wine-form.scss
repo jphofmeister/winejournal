@@ -19,12 +19,13 @@ h1.wine-form-heading {
     justify-content: center;
     align-items: center;
 
-    .upload-image-label {
+    .upload-image-button {
       color: $purple-black;
 
       &:hover {
         text-decoration: underline;
         cursor: pointer;
+        box-shadow: none;
       }
     }
 

@@ -20,8 +20,9 @@ const groupByMonth = wines => {
         return months;
     }, {});
     return {
-        months: Object.keys(groups).sort(sortByMonth),
-        winesByMonth: groups,
+      months: Object.keys(groups).sort(sortByMonth),
+      winesByMonth: groups,
     };
 };
+
  export default groupByMonth;

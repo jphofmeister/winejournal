@@ -4,15 +4,18 @@
   //   "sidebar main";
   // width: 100vw;
   // height: 100vh;
+  height: 100vh;
   display: flex;
   background-color: $background-gray;
 
   nav {
     //grid-area: sidebar;
-    flex: 0 1 188px;
+    flex: 0 0 188px;
   }
 
   main {
     //grid-area: main;
+    flex: 1 1 auto;
+    overflow: auto;
   }
 }

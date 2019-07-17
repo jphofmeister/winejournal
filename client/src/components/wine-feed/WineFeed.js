@@ -3,18 +3,6 @@ import PropTypes from 'prop-types';
 import WineCardGroup from './WineCardGroup';
 import groupByMonth from '../../utils/groupByMonth';
 
-// class WineFeed extends Component {
-//   render() {
-//     const { wines } = this.props;
-
-//     return wines.map(wine => <WineCard key={wine._id} wine={wine} />);
-//   }
-// }
-
-// WineFeed.propTypes = {
-//   wines: PropTypes.array.isRequired
-// }
-
 const getMonthYearString = date =>
     new Date(date).toLocaleDateString(undefined, {
         year: 'numeric',
@@ -29,16 +17,15 @@ const WineFeed = ({wines}) => {
     );
   }
   return (
-    <div>
+    <div className="wine-feed">
       {months.map((month) => (
-        <div key={month}>
-          {getMonthYearString(month)}
+        <section key={month}>
+          <h2>{getMonthYearString(month)}</h2>
           <WineCardGroup wines={winesByMonth[month]} />
-        </div>
+        </section>
       ))}
     </div>
   );
 };
-
 
 export default WineFeed;
