@@ -1,12 +1,12 @@
 .wine-info {
-  //min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: repeat(auto-fill, minmax(3.5rem, 1fr));
+  //grid-template-rows: repeat(auto-fill, minmax(3.5rem, 1fr));
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0;
   grid-template-areas: 
-    "breadcrumbs breadcrumbs"
+    "breadcrumbs content"
     "img content";
 
   .breadcrumbs {
@@ -20,15 +20,37 @@
   .wine-heading-img-container {
     grid-area: img;
     background-color: $background-gray;
-    height: calc(100vh - 4rem);
+    height: 100vh;
+    margin-top: -3.5rem;
     display: flex;
     justify-items: stretch;
     flex-direction: column;
 
+    .wine-img {
+      height: 100%; //fill rest of space and center the image inside it
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      img {
+        max-width: 70%;
+        align-self: center;
+        justify-self: center;
+      }
+    }
+    
+  }
+
+  .wine-content {
+    grid-area: content;
+    padding-left: 2rem;
+    overflow: auto;
+
     .wine-heading {
-      padding-left: 2rem;
       display: flex;
       align-items: flex-end;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
   
       h1 {
         line-height: 1;
@@ -41,6 +63,7 @@
         padding: 0;
         border: 0;
         margin-bottom: 2px;
+        background-color: #fff;
   
         &:hover {
           box-shadow: none;
@@ -48,26 +71,6 @@
         }
       }
     }
-
-    .wine-img {
-      height: 100%; //fill rest of space and center the image inside it
-      display: flex;
-      justify-content: center;
-      align-content: center;
-
-      img {
-        max-width: 80%;
-        align-self: center;
-        justify-self: center;
-      }
-    }
-    
-  }
-
-  .wine-content {
-    grid-area: content;
-    
-    padding-left: 2rem;
 
     .description-row {
       margin-bottom: 1.5rem;
@@ -77,6 +80,10 @@
         font-weight: 700;
       }
     }
+
+    .delete {
+        margin-bottom: 2rem;
+      }
   }
 }
 

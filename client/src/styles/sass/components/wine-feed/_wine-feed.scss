@@ -1,7 +1,12 @@
 .wine-feed {
-  margin-bottom: 3rem;
+  //margin-bottom: 3rem;
+
   section {
     padding: 0;
+  }
+
+  section:last-child {
+    margin-bottom: 3rem;
   }
 }
 

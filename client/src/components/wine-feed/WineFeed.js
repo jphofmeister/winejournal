@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import WineCardGroup from './WineCardGroup';
-import groupByMonth from '../../utils/groupByMonth';
+import getMonthYearString from '../../utils/getMonthYearString';
 
-const getMonthYearString = date =>
-    new Date(date).toLocaleDateString(undefined, {
-        year: 'numeric',
-        month: 'long'
-    });
-
-const WineFeed = ({wines}) => {
-  const {months, winesByMonth} = groupByMonth(wines);
-  if (months === 0) {
-    return (
-      <span>You have not added any wine.</span>
-    );
-  }
+const WineFeed = ({ months, winesByMonth }) => {
   return (
-    <div className="wine-feed">
+    <main className="wine-feed">
       {months.map((month) => (
-        <section key={month}>
+        <section key={month} id={month}>
           <h2>{getMonthYearString(month)}</h2>
           <WineCardGroup wines={winesByMonth[month]} />
         </section>
       ))}
-    </div>
+    </main>
   );
 };
 

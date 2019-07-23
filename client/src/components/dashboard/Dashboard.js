@@ -6,6 +6,7 @@ import Sidebar from '../layout/Sidebar';
 import WineFeed from '../wine-feed/WineFeed';
 import Spinner from '../common/Spinner';
 import { getWines } from '../../actions/wineActions';
+import groupByMonth from '../../utils/groupByMonth';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -13,23 +14,27 @@ class Dashboard extends Component {
   }
 
   render() {
-    //const { user } = this.props.auth;
     const { wines, loading } = this.props.wine;
+
+    const { months, winesByMonth } = groupByMonth(wines);
+    if (months === 0) {
+      return (
+        <span>You have not added any wine.</span>
+      );
+    }
 
     let wineContent;
 
     if (wines === null || loading) {
       wineContent = <Spinner />
     } else {
-      wineContent = <WineFeed wines={wines} />
+      wineContent = <WineFeed months={months} winesByMonth={winesByMonth} />
     }
 
     return (
       <div className="grid-container">
-        <Sidebar />
-        <main>
-          {wineContent}
-        </main>
+        <Sidebar months={months} />
+        {wineContent}
       </div>
     )
   }

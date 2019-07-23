@@ -14,11 +14,13 @@ h1.wine-form-heading {
 
   .upload-container {
     grid-column: uploader;
+    height: 100vh;
     background-color: $background-gray;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    //when the upload button is displayed
     .upload-image-button {
       color: $purple-black;
 
@@ -29,24 +31,27 @@ h1.wine-form-heading {
       }
     }
 
-    .upload-image {
-      width: 0.1px;
-	    height: 0.1px;
-	    opacity: 0;
-	    overflow: hidden;
-	    position: absolute;
-      z-index: -1;
+    // this was for the file input, but it's not being used anymore
+    //
+    // .upload-image {
+    //   width: 0.1px;
+	  //   height: 0.1px;
+	  //   opacity: 0;
+	  //   overflow: hidden;
+	  //   position: absolute;
+    //   z-index: -1;
 
-      &:focus + label {
-        outline: 1px dotted #000;
-	      outline: -webkit-focus-ring-color auto 5px;
-      }
-    }
+    //   &:focus + label {
+    //     outline: 1px dotted #000;
+	  //     outline: -webkit-focus-ring-color auto 5px;
+    //   }
+    // }
 
-    .uploaded-image-container{
+    // this is to display the file that was uploaded
+    .display-image-container {
       display: flex; 
       flex-direction: column;
-      align-items: center;
+      align-items: center; 
 
       img {
         max-height: 500px;
@@ -62,8 +67,9 @@ h1.wine-form-heading {
   .normal-form-container {
     grid-column: form;
     padding: 2rem;
+    overflow: auto;
 
-    input[type="text"], textarea, .expand-link {
+    input[type="text"], textarea {
       width: 100%;
       max-width: 24rem;
     }
@@ -105,12 +111,18 @@ h1.wine-form-heading {
     }
 
     .expand-link {
+      width: 100%;
+      max-width: 24.6rem;
       display: block;
       margin-bottom: 1rem;
     }
 
-    input[type="submit"] {
-      margin-right: 1rem;
+    .form-buttons {
+      margin-bottom: 2rem;
+      
+      input[type="submit"] {
+        margin-right: 1rem;
+      }
     }
 
   }

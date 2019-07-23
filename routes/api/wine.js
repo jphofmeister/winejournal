@@ -124,7 +124,7 @@ router.put('/:id', passport.authenticate('jwt', { session: false }), upload.sing
   if (req.body.alcoholContent) updatedWine.alcoholContent = req.body.alcoholContent;
   if (req.body.price) updatedWine.price = req.body.price;
   if (req.body.vintage) updatedWine.vintage = req.body.vintage;
-  if (req.body.wineImage) newWine.wineImage = req.file.filename;
+  if (req.body.wineImage) updatedWine.wineImageUrl = req.body.wineImage;
 
   Wine.findOneAndUpdate(
     { _id: req.params.id },
