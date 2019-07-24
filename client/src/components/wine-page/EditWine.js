@@ -67,7 +67,7 @@ class EditWine extends Component {
       wineType: wine.wineType,
       notes: wine.notes,
       varietal: varietalCSV,
-      tasteDate: wine.tasteDate,
+      tasteDate: new Date(wine.tasteDate).toISOString().substring(0, 10),
       tasteLocation: wine.tasteLocation,
       rating: wine.rating,
       alcoholContent: wine.alcoholContent,
@@ -159,7 +159,7 @@ class EditWine extends Component {
     );
 
     const displayImage = (
-      <div className="uploaded-image-container" >
+      <div className="display-image-container" >
         <img src={this.state.wineImage} alt="" />
         <a onClick={this.onDeleteImage}>
           <i className="fas fa-times" /> Delete and Upload New Image
@@ -203,15 +203,6 @@ class EditWine extends Component {
               divClass="wine-form-row"
             />
 
-            <TextArea
-              name="notes"
-              labelText="Notes"
-              placeholder="Ex: Refreshing, easy drinking"
-              onChange={this.onChange}
-              value={this.state.notes}
-              divClass="wine-form-row"
-            />
-
             <TextInput
               name="varietal"
               labelText="Varietal"
@@ -230,6 +221,15 @@ class EditWine extends Component {
               value={this.state.tasteDate}
               onChange={this.onChange}
               error={errors.tasteDate}
+              divClass="wine-form-row"
+            />
+
+            <TextArea
+              name="notes"
+              labelText="Notes"
+              placeholder="Ex: Refreshing, easy drinking"
+              onChange={this.onChange}
+              value={this.state.notes}
               divClass="wine-form-row"
             />
 
@@ -288,8 +288,10 @@ class EditWine extends Component {
               divClass="wine-form-row"
             />
 
-            <input type="submit" value="Save" className="button btn-primary" />
-            <button className="button" onClick={this.handleToggleShowEditForm}>Cancel</button>
+            <div className="form-buttons">
+              <input type="submit" value="Save" className="button btn-primary" />
+              <button className="button" onClick={this.handleToggleShowEditForm}>Cancel</button>
+            </div>
 
           </div>
         </form>

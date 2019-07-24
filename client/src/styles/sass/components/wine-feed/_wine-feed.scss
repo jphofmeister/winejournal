@@ -1,4 +1,16 @@
-main {
+.wine-feed {
+  //margin-bottom: 3rem;
+
+  section {
+    padding: 0;
+  }
+
+  section:last-child {
+    margin-bottom: 3rem;
+  }
+}
+
+.wine-card-group {
   //height: 100vh;
   display: flex;
   flex-wrap: wrap;

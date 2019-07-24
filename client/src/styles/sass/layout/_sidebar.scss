@@ -1,9 +1,9 @@
 nav {
-  grid-area: sidebar;
+  //grid-area: sidebar;
   padding: 40px;
   //max-width: 188px;
   background-color: #fff;
-  height: 100vh;
+  //height: 100vh;
   
   .logo-img {
     max-height: 33px;
@@ -11,5 +11,18 @@ nav {
     // margin-top: 2em;
     // position: relative;
     // z-index: 2;
+  }
+
+  ul li a {
+    font-size: 1.125rem;
+    color: $purple-black;
+  }
+}
+
+.month-list {
+  margin-bottom: 3rem;
+  
+  li {
+    padding: .5rem 0;
   }
 }

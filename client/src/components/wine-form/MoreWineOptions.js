@@ -21,16 +21,6 @@ class MoreWineOptions extends Component {
 
     return (
       <div className="form-container">
-        <TextInput
-          name="tasteDate"
-          labelText="Tasted On"
-          type="date"
-          placeholder="mm/dd/yyyy"
-          value={this.props.tasteDate}
-          onChange={this.props.onChange}
-          error={errors.tasteDate}
-          divClass="wine-form-row"
-        />
 
         <TextInput
           name="tasteLocation"

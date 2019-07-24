@@ -25,8 +25,12 @@ module.exports = function validateWineInput(data) {
         errors.varietal = 'Varietal is required';
     }
 
+    if (Validator.isEmpty(data.tasteDate)) {
+        errors.tasteDate = 'Taste Date is required';
+    }
+
     return {
-        errors, 
+        errors,
         isValid: isEmpty(errors)
     }
 }

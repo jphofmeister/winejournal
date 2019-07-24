@@ -119,7 +119,6 @@ class WineForm extends Component {
   render() {
     const { errors } = this.state;
     const moreWineOptions = {
-      tasteDate: this.state.tasteDate,
       tasteLocation: this.state.tasteLocation,
       rating: this.state.rating,
       alcoholContent: this.state.alcoholContent,
@@ -141,7 +140,7 @@ class WineForm extends Component {
     );
 
     const displayImage = (
-      <div className="uploaded-image-container" >
+      <div className="display-image-container" >
         <img src={this.state.wineImage} alt="" />
         <a onClick={this.onDeleteImage}>
           <i className="fas fa-times" /> Delete and Upload New Image
@@ -186,15 +185,6 @@ class WineForm extends Component {
               divClass="wine-form-row"
             />
 
-            <TextArea
-              name="notes"
-              labelText="Notes"
-              placeholder="Ex: Refreshing, easy drinking"
-              onChange={this.onChange}
-              value={this.state.notes}
-              divClass="wine-form-row"
-            />
-
             <TextInput
               name="varietal"
               labelText="Varietal"
@@ -202,6 +192,26 @@ class WineForm extends Component {
               value={this.state.varietal}
               onChange={this.onChange}
               error={errors.varietal}
+              divClass="wine-form-row"
+            />
+
+            <TextInput
+              name="tasteDate"
+              labelText="Tasted On"
+              type="date"
+              placeholder="mm/dd/yyyy"
+              value={this.state.tasteDate}
+              onChange={this.onChange}
+              error={errors.tasteDate}
+              divClass="wine-form-row"
+            />
+
+            <TextArea
+              name="notes"
+              labelText="Notes"
+              placeholder="Ex: Refreshing, easy drinking"
+              onChange={this.onChange}
+              value={this.state.notes}
               divClass="wine-form-row"
             />
 
@@ -215,9 +225,10 @@ class WineForm extends Component {
               <MoreWineOptions moreWineOptions={moreWineOptions} onChange={this.onChange} />
             }
 
-
-            <input type="submit" value="Submit" className="button btn-primary" />
-            <input type="reset" value="Cancel" className="button" />
+            <div className="form-buttons">
+              <input type="submit" value="Submit" className="button btn-primary" />
+              <input type="reset" value="Cancel" className="button" />
+            </div>
           </div>
         </form>
       </div>

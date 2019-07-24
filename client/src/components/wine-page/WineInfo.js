@@ -30,21 +30,20 @@ class WineInfo extends Component {
       <div className="wine-info">
 
         <div className="breadcrumbs">
-          <Link to="/dashboard">Dashboard</Link> >
-          <Link to={`/wine/${wine._id}`}> {wine.wineName}</Link>
+          <Link to="/dashboard"><i className="fas fa-chevron-left" /> Back</Link>
         </div>
 
         <div className="wine-heading-img-container">
-          <div className="wine-heading">
-            <h1>{wine.wineName}</h1>
-            <button onClick={this.handleToggleShowEditForm} className="edit-wine-button">Edit Wine</button>
-          </div>
           <div className="wine-img">
             <img src={wine.wineImageUrl} alt="" />
           </div>
         </div>
 
         <div className="wine-content">
+          <div className="wine-heading">
+            <h1>{wine.wineName}</h1>
+            <button onClick={this.handleToggleShowEditForm} className="edit-wine-button">Edit Wine</button>
+          </div>
           <div className="description-row"><div className="description-label">Winery:</div> {wine.winery} </div>
           <div className="description-row"><div className="description-label">Wine Type:</div> {wine.wineType} </div>
           <div className="description-row"><div className="description-label">Notes:</div> {wine.notes} </div>
@@ -55,11 +54,9 @@ class WineInfo extends Component {
           <div className="description-row"><div className="description-label">Alcohol Content:</div> {wine.alcoholContent}%</div>
           <div className="description-row"><div className="description-label">Price:</div> ${wine.price}</div>
           <div className="description-row"><div className="description-label">Vintage:</div> {wine.vintage}</div>
-          <div>
-            <button className="delete" onClick={this.handleDeleteClick.bind(this, wine._id)}>
-              <i className="fas fa-times" /> Delete
+          <button className="delete" onClick={this.handleDeleteClick.bind(this, wine._id)}>
+            <i className="fas fa-times" /> Delete
           </button>
-          </div>
         </div>
 
       </div>

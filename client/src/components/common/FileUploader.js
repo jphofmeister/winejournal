@@ -28,7 +28,7 @@ class FileUploader extends Component {
 
     return (
       <div className="form-row">
-        <button onClick={this.uploadWidget} className="upload-image-label">Upload an image</button>
+        <button onClick={this.uploadWidget} className="upload-image-button">Upload an image</button>
       </div>
     )
   }
