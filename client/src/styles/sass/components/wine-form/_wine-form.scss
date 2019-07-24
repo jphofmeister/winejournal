@@ -1,24 +1,44 @@
 h1.wine-form-heading {
-  position: relative;
+  position: absolute;
   z-index: 2;
   padding: 2rem;
-  display: inline-block;
+  width: 50%;
+
+  @media (max-width: 568px) {
+    position: relative;
+    width: auto;
+  }
 }
 
 .wine-form {
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-columns: [uploader] 1fr [form] 1fr; 
-  margin-top: -157.45px;
+  //grid-template-columns: [uploader] 1fr [form] 1fr; 
+  grid-template-areas: 'uploader form';
+  grid-template-columns: repeat(2, 1fr);
+  //margin-top: -157.45px;
+
+  @media (max-width: 568px) {
+    grid-template-areas:
+      'uploader'
+      'form'; 
+    grid-template-columns: repeat(1, 1fr); 
+    margin-top: 0;
+    height: auto;
+  }
 
   .upload-container {
-    grid-column: uploader;
+    grid-area: uploader;
     height: 100vh;
     background-color: $background-gray;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 568px) {
+      height: auto;
+    }
 
     //when the upload button is displayed
     .upload-image-button {
@@ -65,9 +85,13 @@ h1.wine-form-heading {
   }
 
   .normal-form-container {
-    grid-column: form;
+    grid-area: form;
     padding: 2rem;
     overflow: auto;
+
+    @media (max-width: 568px) {
+      //overflow: hidden;
+    }
 
     input[type="text"], textarea {
       width: 100%;
@@ -88,27 +112,35 @@ h1.wine-form-heading {
       }
     }
 
-    .radio-label {
-      font-weight: 400;
-      padding: 10px;
-      margin-right: 10px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-      text-align: center;
-      border-radius: 5px;
-      //display: inline-block;
+    .radio-buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      flex-wrap: wrap;
 
-      &:hover {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
-        cursor: pointer;
-      }
+      .radio-label {
+        font-weight: 400;
+        padding: 10px;
+        margin-right: 10px;
+        margin-bottom: 1rem;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+        text-align: center;
+        border-radius: 5px;
 
-      img {
-        width: 75px;
-        height: 75px;
-        display: block;
+        &:hover {
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+          cursor: pointer;
+        }
+
+        img {
+          width: 75px;
+          height: 75px;
+          display: block;
+        }
       }
     }
+    
 
     .expand-link {
       width: 100%;
@@ -124,7 +156,6 @@ h1.wine-form-heading {
         margin-right: 1rem;
       }
     }
-
   }
 }
 
