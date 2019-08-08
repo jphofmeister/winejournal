@@ -30,7 +30,7 @@ class WineInfo extends Component {
       <div className="wine-info">
 
         <div className="breadcrumbs">
-          <Link to="/dashboard"><i className="fas fa-chevron-left" /> Back</Link>
+          <Link to="/dashboard"><i className="fas fa-arrow-left" /> <span className="back-text">Back</span></Link>
         </div>
 
         <div className="wine-heading-img-container">

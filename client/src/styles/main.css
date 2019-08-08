@@ -257,12 +257,25 @@ label {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0;
   grid-template-areas: "breadcrumbs content" "img content"; }
+  @media (max-width: 568px) {
+    .wine-info {
+      grid-template-areas: "breadcrumbs" "img" "content";
+      grid-template-columns: repeat(1, 1fr); } }
   .wine-info .breadcrumbs {
     grid-area: breadcrumbs;
     padding-top: 1rem;
     padding-left: 2rem;
     position: absolute;
     z-index: 2; }
+    @media (max-width: 568px) {
+      .wine-info .breadcrumbs {
+        position: fixed; }
+        .wine-info .breadcrumbs a {
+          background-color: #fff;
+          padding: .34375rem .5rem;
+          border-radius: 50%; }
+          .wine-info .breadcrumbs a .back-text {
+            display: none; } }
   .wine-info .wine-heading-img-container {
     grid-area: img;
     background-color: #F3F2F3;
@@ -280,6 +293,15 @@ label {
         max-width: 70%;
         align-self: center;
         justify-self: center; }
+    @media (max-width: 568px) {
+      .wine-info .wine-heading-img-container {
+        height: auto;
+        margin-top: 0;
+        position: fixed;
+        top: 0;
+        left: 0; }
+        .wine-info .wine-heading-img-container .wine-img img {
+          max-width: 100%; } }
   .wine-info .wine-content {
     grid-area: content;
     padding-left: 2rem;
@@ -302,6 +324,10 @@ label {
         .wine-info .wine-content .wine-heading .edit-wine-button:hover {
           box-shadow: none;
           text-decoration: underline; }
+      @media (max-width: 568px) {
+        .wine-info .wine-content .wine-heading {
+          display: block;
+          text-align: center; } }
     .wine-info .wine-content .description-row {
       margin-bottom: 1.5rem; }
       .wine-info .wine-content .description-row .description-label {
@@ -309,6 +335,12 @@ label {
         font-weight: 700; }
     .wine-info .wine-content .delete {
       margin-bottom: 2rem; }
+    @media (max-width: 568px) {
+      .wine-info .wine-content {
+        overflow: visible;
+        position: relative;
+        background-color: #fff;
+        margin-top: 50vh; } }
 
 .wine-feed section {
   padding: 0; }
