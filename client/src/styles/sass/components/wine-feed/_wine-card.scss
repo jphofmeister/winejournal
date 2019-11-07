@@ -44,3 +44,19 @@ a.wine-card {
     }
   }
 }
+
+@media (max-width: 700px) {
+  a.wine-card {
+    height: 248px;
+    width: 150px;
+    grid-template-areas: 
+      "card-image" 
+      "card-info";
+    align-content: flex-start;
+
+    .card-info {
+      width: 130px;
+      padding: 10px;
+    }
+  }
+}

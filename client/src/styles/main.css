@@ -138,6 +138,13 @@ section {
   background-color: #C44A4A;
   border: 1px solid #C44A4A; }
 
+.icon-button {
+  background: none;
+  padding: 0;
+  border: 0; }
+  .icon-button:hover {
+    box-shadow: none; }
+
 button, input, select, textarea {
   font-family: inherit;
   font-size: 100%; }
@@ -350,6 +357,19 @@ label {
   flex-wrap: wrap;
   align-content: flex-start; }
 
+@media (max-width: 960px) {
+  .wine-card-group {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+    padding-bottom: 1rem; } }
+
+@media (max-width: 700px) {
+  .wine-feed section h2 {
+    margin-top: 0; }
+  .wine-feed section .wine-card-group a:last-child {
+    margin-right: 1rem; } }
+
 a.wine-card {
   display: grid;
   grid-template-areas: "card-image card-info";
@@ -382,6 +402,16 @@ a.wine-card {
       margin: 0; }
     a.wine-card .card-info span {
       font-size: 0.875em; }
+
+@media (max-width: 700px) {
+  a.wine-card {
+    height: 248px;
+    width: 150px;
+    grid-template-areas: "card-image"  "card-info";
+    align-content: flex-start; }
+    a.wine-card .card-info {
+      width: 130px;
+      padding: 10px; } }
 
 .auth-form {
   margin: 1rem 0;
@@ -419,19 +449,33 @@ a.wine-card {
   height: 100vh;
   display: flex;
   background-color: #F3F2F3; }
-  .grid-container nav {
-    flex: 0 0 188px; }
+  .grid-container header {
+    flex: 0 0 180px; }
   .grid-container main {
     flex: 1 1 auto;
     overflow: auto; }
+    .grid-container main .mobile-header {
+      display: none; }
 
-nav {
+@media (max-width: 700px) {
+  .grid-container main .mobile-header {
+    display: flex;
+    padding: 1rem; }
+    .grid-container main .mobile-header .open-menu {
+      padding-right: 1rem; }
+    .grid-container main .mobile-header .logo-img {
+      max-height: 33px; } }
+
+header {
   padding: 40px;
-  background-color: #fff; }
-  nav .logo-img {
+  background-color: #fff;
+  position: relative; }
+  header .logo-img {
     max-height: 33px;
     margin-bottom: 30px; }
-  nav ul li a {
+  header .close-menu {
+    display: none; }
+  header ul li a {
     font-size: 1.125rem;
     color: #53445A; }
 
@@ -439,6 +483,23 @@ nav {
   margin-bottom: 3rem; }
   .month-list li {
     padding: .5rem 0; }
+
+@media (max-width: 700px) {
+  header {
+    margin-left: -260px;
+    transition: 0.5s;
+    margin-right: 0;
+    z-index: 2; }
+    header.sidebar-open {
+      margin-left: 0;
+      margin-right: -260px; }
+    header .close-menu {
+      display: block;
+      color: #53445A;
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0; } }
 
 p {
   font-size: 1.125em;

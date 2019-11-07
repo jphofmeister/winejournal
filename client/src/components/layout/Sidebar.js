@@ -13,8 +13,13 @@ class Sidebar extends Component {
     this.props.logoutUser();
   }
 
+  closeMenu() {
+    const header = document.getElementById('header');
+    header.classList.toggle('sidebar-open');
+  }
+
   render() {
-    const { isAuthenticated } = this.props.auth;
+    //const { isAuthenticated } = this.props.auth;
     const { months } = this.props;
 
     const authLinks = (
@@ -32,27 +37,18 @@ class Sidebar extends Component {
       </ul>
     );
 
-    const guestLinks = (
-      <ul>
-        <li>
-          <Link to="/register">
-            Sign Up
-          </Link>
-        </li>
-        <li>
-          <Link to="/login">
-            Login
-          </Link>
-        </li>
-      </ul>
-    );
-
     return (
-      <nav>
+      <header id="header">
         <Link to="/">
           <img src={wine_journal_logo} className="logo-img" alt="Wine Journal" />
         </Link>
+
+        <button className="icon-button close-menu" onClick={this.closeMenu.bind(this)}>
+          <i className="fas fa-times" />
+        </button>
+
         <Link to="/add-wine" className="button add-wine-btn btn-primary">+ Add Wine</Link>
+        
         <ul className="month-list">
           {months.map((month) => (
             <li key={month}>
@@ -61,10 +57,10 @@ class Sidebar extends Component {
           ))}
         </ul>
         <div>
-          {isAuthenticated ? authLinks : guestLinks}
+          {authLinks}
         </div>
 
-      </nav>
+      </header>
     );
   }
 }

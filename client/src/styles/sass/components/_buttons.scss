@@ -52,3 +52,13 @@
   background-color: $red;
   border: 1px solid $red;
 }
+
+.icon-button {
+  background: none;
+  padding: 0;
+  border: 0;
+
+  &:hover {
+    box-shadow: none;
+  }
+}

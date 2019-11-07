@@ -5,14 +5,14 @@ import getMonthYearString from '../../utils/getMonthYearString';
 
 const WineFeed = ({ months, winesByMonth }) => {
   return (
-    <main className="wine-feed">
+    <div className="wine-feed">
       {months.map((month) => (
         <section key={month} id={month}>
           <h2>{getMonthYearString(month)}</h2>
           <WineCardGroup wines={winesByMonth[month]} />
         </section>
       ))}
-    </main>
+    </div>
   );
 };
 
