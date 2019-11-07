@@ -4,7 +4,7 @@
   "description": "wine journal app",
   "main": "server.js",
   "engines": {
-    "node": "v10.14.2"
+    "node": "10.14.2"
   },
   "scripts": {
     "client-install": "npm install --prefix client",
