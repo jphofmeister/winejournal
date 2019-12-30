@@ -34,6 +34,10 @@ class Login extends Component {
     }
   }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
@@ -43,10 +47,6 @@ class Login extends Component {
     };
 
     this.props.loginUser(userData);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -94,7 +94,7 @@ Login.propTypes = {
   errors: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 });
