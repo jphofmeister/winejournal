@@ -76,8 +76,10 @@ class Login extends Component {
               error={errors.password}
               divClass="auth-form-row"
             />
+
+
             <div className="auth-form-row">
-              <button type="submit" className="btn-primary">Login</button>
+              <input type="submit" className="btn-primary" value="LOGIN" />
             </div>
           </form>
         </div>
