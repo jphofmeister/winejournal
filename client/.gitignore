@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 
+/config/cloud_keys_dev.js
+
 # sass
 /src/styles/sass
 /src/styles/sass/main.scss
