@@ -1,6 +1,6 @@
 module.exports = {
-  cloud_name: 'dila7a9z4',
-  upload_preset: 'ruclsedy',
-  api_key: '753439312426169',
-  api_secret: 'zhb2SIwTCbg29toUV3WWl4-HnRc'
+  cloud_name: 'hvc1lwmvp',
+  upload_preset: 'skbgk2wg',
+  api_key: '639432167837748',
+  api_secret: 'B8pDEM_JPuBBJNDuGos5gyE9s7Y'
 }

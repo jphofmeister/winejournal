@@ -1,4 +1,4 @@
 module.exports = {
-  cloud_name: 'dila7a9z4',
-  upload_preset: 'ruclsedy'
+  cloud_name: 'hvc1lwmvp',
+  upload_preset: 'skbgk2wg'
 }
