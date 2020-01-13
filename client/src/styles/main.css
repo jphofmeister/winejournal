@@ -336,7 +336,7 @@ label {
       height: 100%; }
       .wine-info .wine-heading-img-container .wine-img .img {
         max-width: 100%;
-        height: 100%; }
+        height: auto; }
     .wine-info .wine-content-container {
       overflow: visible;
       position: relative;
