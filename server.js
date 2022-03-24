@@ -16,8 +16,6 @@ app.use(bodyParser.json());
 // DB Config
 const db = require('./config/keys').mongoURI;
 
-// const url = "mongodb+srv://jphofmeister:LmiXvOcV8fmAiM2R@cluster0.ioncj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
 
 
 // Connect to MongoDB
