@@ -146,3 +146,5 @@ tokens/
 # pm2 configuration file
 ecosystem.config.js
 
+/config/keys_dev.js
+/config/cloud_keys_dev.js
